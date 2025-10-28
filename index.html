@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alan Fullagar | BI Developer & Data Analyst</title>
+    
+    <!-- Favicon - Generate at https://favicon.io/favicon-generator/ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Meta tags for social sharing -->
+    <meta name="description" content="Data Analyst with 2 years experience in Python, T-SQL, and Power BI. Building BI solutions and data pipelines. Based in Derby, UK.">
+    <meta property="og:title" content="Alan Fullagar | BI Developer & Data Analyst">
+    <meta property="og:description" content="2 years experience in BI, Python, T-SQL, Power BI. Currently developing data engineering skills.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alanfullagar.github.io">
+    <meta name="twitter:card" content="summary">
+    
     <style>
         * {
             margin: 0;
@@ -120,6 +134,13 @@
             background-color: #FFFFFF;
             color: #3498DB;
             transform: translateX(5px);
+        }
+
+        .nav-icon {
+            display: inline-block;
+            width: 20px;
+            margin-right: 8px;
+            text-align: center;
         }
 
         /* Main Content */
@@ -427,6 +448,25 @@
             color: #2980B9;
         }
 
+        /* Download CV Button */
+        .cv-download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            color: #FFFFFF;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .sidebar {
@@ -491,15 +531,16 @@
             <p>📱 07450 556836</p>
             <p>📍 Derby, Derbyshire</p>
             <p>💼 <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank">LinkedIn Profile</a></p>
+            <p>💻 <a href="https://github.com/AlanFullagar" target="_blank">GitHub Profile</a></p>
         </div>
 
         <nav>
             <ul class="nav-menu">
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="active"><span class="nav-icon">👤</span> About</a></li>
+                <li><a href="#experience"><span class="nav-icon">💼</span> Experience</a></li>
+                <li><a href="#skills"><span class="nav-icon">⚡</span> Skills</a></li>
+                <li><a href="#projects"><span class="nav-icon">🚀</span> Projects</a></li>
+                <li><a href="#contact"><span class="nav-icon">✉️</span> Contact</a></li>
             </ul>
         </nav>
     </aside>
@@ -509,15 +550,17 @@
         <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p class="section-subtitle">Data Analyst | Aspiring BI Developer | Business Intelligence</p>
+            <p class="section-subtitle">BI Developer | Data Engineering | Business Intelligence</p>
             
             <div class="about-content">
                 <div class="about-text">
-                    <p>Data-driven professional with 2 years of hands-on experience transforming complex datasets into strategic insights that drive operational efficiency. Currently working as a Data Analyst at Flint Bishop Ltd, I specialise in building end-to-end BI solutions, automated data pipelines, and interactive dashboards that empower stakeholders to make informed decisions.</p>
+                    <p>Data-driven professional with 2 years of hands-on experience transforming complex datasets into strategic insights that drive operational efficiency. Currently working as a Data Analyst at Flint Bishop LLP, I specialise in building end-to-end BI solutions, automated data pipelines, and interactive dashboards that empower stakeholders to make informed decisions.</p>
                     
                     <p>My expertise lies in Python, T-SQL, and Power BI, with a strong focus on automation and process optimisation. I've successfully delivered projects that reduced manual reporting time by 96%, eliminated data integrity issues, and provided real-time insights to 50+ stakeholders.</p>
                     
                     <p>Currently developing my skills in Dynamic SQL, SSIS, and data warehousing concepts as I transition from Data Analyst to BI Analyst/Junior Data Engineer roles. I'm passionate about building scalable, self-serve analytics solutions that enable users to access insights independently.</p>
+                    
+                    <p><strong>Professional Development:</strong> Actively pursuing Microsoft Power BI (PL-300) and Data Analyst Associate (DA-100) certifications to strengthen my BI expertise and validate my technical capabilities.</p>
                 </div>
             </div>
 
@@ -550,13 +593,13 @@
                 <div class="experience-header">
                     <div>
                         <div class="experience-title">Data Analyst</div>
-                        <div class="experience-company">Flint Bishop Ltd, Derby</div>
+                        <div class="experience-company">Flint Bishop LLP, Derby</div>
                     </div>
                     <div class="experience-date">March 2024 – Present</div>
                 </div>
                 <div class="experience-description">
                     <ul>
-                        <li>Architected end-to-end BI solution including automated API data ingestion pipeline, SQL-based transformation layer with staging architecture, and Power BI analytics platform serving 20+ stakeholders with real-time KPIs</li>
+                        <li>Architected end-to-end BI solution including automated API data ingestion pipeline, SQL-based transformation layer with staging architecture, and Power BI analytics platform serving 50+ stakeholders with real-time KPIs</li>
                         <li>Reduced manual reporting time from 5 days to 4 hours (96% improvement) through comprehensive automation</li>
                         <li>Pioneered API integration initiative to automate data ingestion from external sources, projecting 65% reduction in manual data entry</li>
                         <li>Implemented proactive reporting system through internal ticketing mechanism, ensuring 100% on-time delivery of strategic insights</li>
@@ -569,7 +612,7 @@
                 <div class="experience-header">
                     <div>
                         <div class="experience-title">Data Administrator</div>
-                        <div class="experience-company">Flint Bishop Ltd, Derby</div>
+                        <div class="experience-company">Flint Bishop LLP, Derby</div>
                     </div>
                     <div class="experience-date">October 2023 – March 2024</div>
                 </div>
@@ -715,20 +758,11 @@
                         </li>
                         <li class="skill-item">
                             <div class="skill-name">
-                                <span>SSRS (Reporting Services)</span>
-                                <span class="skill-level">Working Knowledge</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 55%"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">
                                 <span>SSIS</span>
-                                <span class="skill-level">Basic → Learning</span>
+                                <span class="skill-level">Basic → Developing</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 38%"></div>
+                                <div class="skill-progress" style="width: 35%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
@@ -880,6 +914,15 @@
                     <h3>Location</h3>
                     <p>Derby, Derbyshire, UK</p>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="CV_BI_Developer_2026.pdf" download class="cv-download-btn">
+                    📄 Download CV (PDF)
+                </a>
+                <p style="color: #7F8C8D; font-size: 14px; margin-top: 15px;">
+                    <em>Full CV with detailed project descriptions and references available upon request</em>
+                </p>
             </div>
         </section>
     </main>
