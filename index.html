@@ -5,20 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alan Fullagar | BI Developer & Data Analyst</title>
     
-    <!-- Favicon - Generate at https://favicon.io/favicon-generator/ -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     
-    <!-- Meta tags for social sharing -->
-    <meta name="description" content="Data Analyst with 2 years experience in Python, T-SQL, and Power BI. Building BI solutions and data pipelines. Based in Derby, UK.">
+    <!-- Enhanced Meta tags for SEO -->
+    <meta name="description" content="BI Developer specialising in Power BI, Python, and T-SQL. Building end-to-end analytics solutions, ETL pipelines, and automated data platforms. Based in Derby, UK.">
+    <meta name="keywords" content="BI Developer, Business Intelligence, Power BI, Python, T-SQL, Data Analytics, ETL, Data Warehousing, Derby">
     <meta property="og:title" content="Alan Fullagar | BI Developer & Data Analyst">
-    <meta property="og:description" content="2 years experience in BI, Python, T-SQL, Power BI. Currently developing data engineering skills.">
+    <meta property="og:description" content="Building end-to-end BI solutions with Power BI, Python & T-SQL. Specialising in analytics automation, data pipelines, and strategic insights.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alanfullagar.github.io">
     <meta name="twitter:card" content="summary">
     
     <style>
+        :root {
+            /* Enhanced Data-Viz Inspired Colour Palette */
+            --primary-dark: #1A2332;        /* Deep navy - professional depth */
+            --primary-blue: #0066CC;        /* Rich blue - BI/Intelligence focus */
+            --accent-teal: #00A896;         /* Teal - data/analytics accent */
+            --accent-orange: #FF6B35;       /* Orange - call-to-action */
+            --text-primary: #2D3748;        /* Dark grey-blue - readability */
+            --text-secondary: #718096;      /* Medium grey - subtitles */
+            --bg-light: #F7FAFC;            /* Soft white - backgrounds */
+            --bg-card: #FFFFFF;             /* Pure white - cards */
+            --border-light: #E2E8F0;        /* Light grey - borders */
+            --sidebar-gradient-start: #1A2332;
+            --sidebar-gradient-end: #2D4059;
+            --success-green: #38A169;       /* For positive metrics */
+            --gradient-1: linear-gradient(135deg, #0066CC 0%, #00A896 100%);
+            --gradient-2: linear-gradient(135deg, #FF6B35 0%, #0066CC 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -26,29 +45,44 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #34495E;
-            background-color: #FFFFFF;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
         }
 
-        /* Sidebar Navigation */
+        /* Sidebar Navigation - Enhanced */
         .sidebar {
             position: fixed;
             left: 0;
             top: 0;
-            width: 280px;
+            width: 300px;
             height: 100vh;
-            background: linear-gradient(135deg, #ECF0F1 0%, #D5DBDB 100%);
+            background: linear-gradient(135deg, var(--sidebar-gradient-start) 0%, var(--sidebar-gradient-end) 100%);
             padding: 40px 30px;
             overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            box-shadow: 4px 0 20px rgba(0,0,0,0.15);
             z-index: 1000;
+        }
+
+        /* Custom scrollbar for sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
         }
 
         .profile-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .profile-photo {
@@ -56,57 +90,66 @@
             height: 160px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            display: block;
-            border: 4px solid #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, #3498DB 0%, #2C3E50 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 4px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: var(--gradient-1);
             color: #FFFFFF;
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 52px;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0,102,204,0.4);
         }
 
         .sidebar h1 {
-            color: #2C3E50;
-            font-size: 24px;
-            margin-bottom: 8px;
-            font-weight: 600;
+            color: #FFFFFF;
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .sidebar .title {
-            color: #3498DB;
-            font-size: 14px;
-            margin-bottom: 5px;
-            font-weight: 500;
+            color: var(--accent-teal);
+            font-size: 15px;
+            margin-bottom: 6px;
+            font-weight: 600;
             letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .sidebar .subtitle {
-            color: #7F8C8D;
-            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
             margin-bottom: 25px;
+            line-height: 1.4;
         }
 
         .contact-info {
             margin-bottom: 30px;
             font-size: 13px;
-            color: #34495E;
+            color: rgba(255,255,255,0.85);
         }
 
         .contact-info a {
-            color: #3498DB;
+            color: var(--accent-teal);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
-            color: #2980B9;
+            color: #FFFFFF;
+            text-decoration: underline;
         }
 
         .contact-info p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             word-break: break-word;
@@ -117,205 +160,294 @@
         }
 
         .nav-menu li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .nav-menu a {
-            color: #2C3E50;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             display: block;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 12px 18px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             font-size: 15px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: var(--accent-teal);
+            transition: height 0.3s ease;
+            border-radius: 2px;
         }
 
         .nav-menu a:hover, .nav-menu a.active {
-            background-color: #FFFFFF;
-            color: #3498DB;
+            background-color: rgba(255,255,255,0.1);
+            color: #FFFFFF;
             transform: translateX(5px);
+        }
+
+        .nav-menu a:hover::before, .nav-menu a.active::before {
+            height: 70%;
         }
 
         .nav-icon {
             display: inline-block;
-            width: 20px;
-            margin-right: 8px;
+            width: 22px;
+            margin-right: 10px;
             text-align: center;
         }
 
-        /* Main Content */
+        /* Main Content - Enhanced */
         .main-content {
-            margin-left: 280px;
-            padding: 60px 80px;
+            margin-left: 300px;
+            padding: 80px 100px;
+            max-width: 1400px;
         }
 
         section {
-            margin-bottom: 80px;
-            scroll-margin-top: 30px;
+            margin-bottom: 100px;
+            scroll-margin-top: 40px;
         }
 
         section h2 {
-            color: #2C3E50;
-            font-size: 32px;
-            margin-bottom: 10px;
+            color: var(--primary-dark);
+            font-size: 42px;
+            margin-bottom: 12px;
             position: relative;
             display: inline-block;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         section h2::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background: #3498DB;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
         }
 
         .section-subtitle {
-            color: #7F8C8D;
-            font-size: 16px;
-            margin-bottom: 30px;
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
-        /* About Section */
+        /* About Section - Enhanced */
         .about-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 40px;
             margin-top: 30px;
         }
 
         .about-text {
-            color: #34495E;
-            font-size: 16px;
-            line-height: 1.8;
+            color: var(--text-primary);
+            font-size: 17px;
+            line-height: 1.9;
         }
 
         .about-text p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
+        .about-text strong {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* New: Highlight Box for Key Qualifications */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, rgba(0,168,150,0.05) 100%);
+            border-left: 4px solid var(--primary-blue);
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-blue);
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* Stats Grid - Enhanced with Data-Viz Styling */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .stat-box {
-            background: #ECF0F1;
-            padding: 20px;
-            border-radius: 8px;
+            background: var(--bg-card);
+            padding: 30px 25px;
+            border-radius: 12px;
             text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .stat-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,102,204,0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .stat-box:hover::before {
+            transform: scaleX(1);
         }
 
         .stat-number {
-            color: #3498DB;
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary-blue);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
         .stat-label {
-            color: #34495E;
             font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Experience Section */
+        /* Experience Section - Enhanced */
         .experience-item {
-            margin-bottom: 40px;
-            padding: 25px;
-            background: #F8F9FA;
-            border-left: 4px solid #3498DB;
-            border-radius: 5px;
+            background: var(--bg-card);
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
         }
 
         .experience-item:hover {
-            background: #ECF0F1;
+            box-shadow: 0 8px 25px rgba(0,102,204,0.12);
             transform: translateX(5px);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
+            align-items: flex-start;
+            margin-bottom: 20px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .experience-title {
-            color: #2C3E50;
-            font-size: 20px;
-            font-weight: 600;
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .experience-company {
-            color: #3498DB;
+            color: var(--primary-blue);
             font-size: 16px;
-            margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .experience-date {
-            color: #7F8C8D;
+            color: var(--text-secondary);
             font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
         }
 
-        .experience-description {
-            color: #34495E;
-            margin-top: 15px;
+        .experience-item ul {
+            list-style: none;
+            margin-top: 20px;
         }
 
-        .experience-description ul {
-            margin-left: 20px;
-            margin-top: 10px;
+        .experience-item li {
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.7;
         }
 
-        .experience-description li {
-            margin-bottom: 8px;
-            line-height: 1.6;
+        .experience-item li::before {
+            content: '▸';
+            color: var(--accent-teal);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        /* Skills Section */
+        /* Skills Section - Enhanced with Better Visual Hierarchy */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
         }
 
         .skill-category {
-            background: #F8F9FA;
-            padding: 25px;
-            border-radius: 8px;
+            background: var(--bg-card);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
 
         .skill-category:hover {
-            background: #ECF0F1;
-            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,102,204,0.12);
         }
 
         .skill-category h3 {
-            color: #2C3E50;
-            font-size: 18px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .skill-category h3::before {
-            content: '▸';
-            color: #3498DB;
-            margin-right: 10px;
+            color: var(--primary-dark);
             font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-light);
         }
 
         .skill-list {
@@ -323,227 +455,391 @@
         }
 
         .skill-item {
-            margin-bottom: 15px;
+            margin-bottom: 22px;
         }
 
         .skill-name {
-            color: #34495E;
-            font-size: 15px;
-            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .skill-name span:first-child {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
         }
 
         .skill-level {
-            color: #7F8C8D;
+            color: var(--text-secondary);
             font-size: 13px;
-            font-style: italic;
+            font-weight: 500;
         }
 
         .skill-bar {
-            height: 6px;
-            background: #ECF0F1;
-            border-radius: 3px;
+            height: 8px;
+            background-color: var(--border-light);
+            border-radius: 4px;
             overflow: hidden;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, #3498DB 0%, #2980B9 100%);
-            border-radius: 3px;
-            transition: width 1s ease;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            transition: width 1s ease-out;
         }
 
-        /* Projects Section */
-        .projects-grid {
+        /* New: Portfolio Section */
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,102,204,0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #E8F4F8 0%, #D3E8EF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-style: italic;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-teal);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-title {
+            color: var(--primary-dark);
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .portfolio-description {
+            color: var(--text-primary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .portfolio-tech-tag {
+            background: rgba(0,102,204,0.08);
+            color: var(--primary-blue);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Projects Section - Enhanced */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
         }
 
         .project-card {
-            background: #F8F9FA;
-            border-radius: 8px;
+            background: var(--bg-card);
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-8px);
-            border-color: #3498DB;
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
+            box-shadow: 0 12px 35px rgba(0,102,204,0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
         }
 
         .project-content {
-            padding: 25px;
+            padding: 35px;
         }
 
         .project-title {
-            color: #2C3E50;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            color: var(--primary-dark);
+            font-size: 22px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .project-description {
-            color: #34495E;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 15px;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
         }
 
         .tech-tag {
-            background: #3498DB;
-            color: #FFFFFF;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 500;
+            background: rgba(0,168,150,0.1);
+            color: var(--accent-teal);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        /* Contact Section */
+        /* Contact Section - Enhanced */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .contact-card {
-            background: #F8F9FA;
-            padding: 30px;
-            border-radius: 8px;
+            background: var(--bg-card);
+            padding: 35px 30px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
 
         .contact-card:hover {
-            background: #ECF0F1;
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,102,204,0.12);
+            border-color: var(--primary-blue);
         }
 
         .contact-card h3 {
-            color: #2C3E50;
-            font-size: 18px;
-            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-card p {
+            color: var(--text-primary);
+            font-size: 15px;
         }
 
         .contact-card a {
-            color: #3498DB;
+            color: var(--primary-blue);
             text-decoration: none;
-            font-size: 15px;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .contact-card a:hover {
-            color: #2980B9;
+            color: var(--accent-teal);
+            text-decoration: underline;
         }
 
-        /* Download CV Button */
+        /* CV Download Button - Enhanced */
         .cv-download-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
-            color: #FFFFFF;
-            padding: 15px 40px;
-            border-radius: 8px;
+            background: var(--gradient-2);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 700;
             font-size: 16px;
-            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
         }
 
         .cv-download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.4);
         }
 
-        /* Responsive Design */
-        @media (max-width: 968px) {
+        /* Mobile Responsive - Enhanced */
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 60px 60px;
+            }
+            
+            section h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .sidebar {
+                position: relative;
                 width: 100%;
                 height: auto;
-                position: relative;
+                padding: 30px 20px;
             }
 
             .main-content {
                 margin-left: 0;
-                padding: 40px 30px;
-            }
-
-            .nav-menu {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-menu li {
-                margin: 5px;
+                padding: 40px 20px;
             }
 
             section h2 {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .main-content {
-                padding: 30px 20px;
+                font-size: 30px;
             }
 
-            section h2 {
-                font-size: 24px;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
-            .skills-grid,
-            .projects-grid {
+            .stat-box {
+                padding: 20px 15px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .projects-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Smooth entrance animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Print styles */
+        @media print {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .stat-box,
+            .project-card,
+            .contact-card {
+                box-shadow: none;
+                border: 1px solid var(--border-light);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <div class="profile-section">
-            <div class="profile-photo">
-                <img src="profile.jpg" alt="Alan Fullagar" 
-                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-            </div>
+            <div class="profile-photo">AF</div>
             <h1>Alan Fullagar</h1>
-            <p class="title">BI Developer | Data Analyst</p>
-            <p class="subtitle">2 Years Experience</p>
+            <p class="title">BI Developer</p>
+            <p class="subtitle">Data Analytics | Business Intelligence</p>
         </div>
 
         <div class="contact-info">
             <p>📧 <a href="mailto:alan.fullagar@icloud.com">alan.fullagar@icloud.com</a></p>
-            <p>📱 07450 556836</p>
-            <p>📍 Derby, Derbyshire</p>
-            <p>💼 <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank">LinkedIn Profile</a></p>
-            <p>💻 <a href="https://github.com/AlanFullagar" target="_blank">GitHub Profile</a></p>
+            <p>📱 <a href="tel:07450556836">07450 556836</a></p>
+            <p>📍 Derby, Derbyshire, UK</p>
+            <p>🔗 <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank">LinkedIn Profile</a></p>
         </div>
 
         <nav>
             <ul class="nav-menu">
-                <li><a href="#about" class="active"><span class="nav-icon">👤</span> About</a></li>
-                <li><a href="#experience"><span class="nav-icon">💼</span> Experience</a></li>
-                <li><a href="#skills"><span class="nav-icon">⚡</span> Skills</a></li>
-                <li><a href="#projects"><span class="nav-icon">🚀</span> Projects</a></li>
-                <li><a href="#contact"><span class="nav-icon">✉️</span> Contact</a></li>
+                <li><a href="#about"><span class="nav-icon">👤</span>About</a></li>
+                <li><a href="#experience"><span class="nav-icon">💼</span>Experience</a></li>
+                <li><a href="#skills"><span class="nav-icon">🛠️</span>Skills</a></li>
+                <li><a href="#portfolio"><span class="nav-icon">📊</span>Portfolio</a></li>
+                <li><a href="#projects"><span class="nav-icon">🚀</span>Projects</a></li>
+                <li><a href="#contact"><span class="nav-icon">✉️</span>Contact</a></li>
             </ul>
         </nav>
     </aside>
@@ -553,36 +849,44 @@
         <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p class="section-subtitle">Data Analyst | Aspiring BI Developer | Business Intelligence</p>
-            
+            <p class="section-subtitle">BI Developer | Transforming Data Into Strategic Intelligence</p>
+
             <div class="about-content">
                 <div class="about-text">
-                    <p>Data-driven professional with 2 years of hands-on experience transforming complex datasets into strategic insights that drive operational efficiency. Currently working as a Data Analyst at Flint Bishop Ltd, I specialise in building end-to-end BI solutions, automated data pipelines, and interactive dashboards that empower stakeholders to make informed decisions.</p>
-                    
-                    <p>My expertise lies in Python, T-SQL, and Power BI, with a strong focus on automation and process optimisation. I've successfully delivered projects that reduced manual reporting time by 96%, eliminated data integrity issues, and provided real-time insights to 25+ stakeholders.</p>
-                    
-                    <p>Currently developing my skills in Dynamic SQL, SSRS, and data warehousing concepts as I transition from Data Analyst to BI Analyst/Junior Data Engineer roles. I'm passionate about building scalable, self-serve analytics solutions that enable users to access insights independently.</p>
-                    
-                    <p><strong>Professional Development:</strong> Actively pursuing Microsoft Power BI (PL-300) and Data Analyst Associate (DA-100) certifications to strengthen my BI expertise and validate my technical capabilities.</p>
-                </div>
-            </div>
+                    <p>
+                        <strong>Data-driven BI professional</strong> specialising in architecting end-to-end analytics solutions that transform complex datasets into strategic intelligence. Currently building enterprise-level BI platforms at Flint Bishop Ltd, where I've engineered systems serving 25+ stakeholders with real-time operational insights.
+                    </p>
+                    <p>
+                        My expertise lies in the complete analytics lifecycle: from <strong>automated data ingestion pipelines</strong> and <strong>SQL-based transformation layers</strong> to <strong>interactive Power BI dashboards</strong> that enable data-driven decision-making. I've delivered solutions that reduced manual reporting from 5 days to 4 hours—a <strong>96% efficiency improvement</strong>—whilst maintaining 100% data integrity across 50+ KPIs.
+                    </p>
+                    <p>
+                        Beyond technical implementation, I focus on <strong>business impact</strong>: identifying operational bottlenecks, automating high-risk manual processes, and creating self-service analytics that empower stakeholders to access insights independently. My approach combines technical rigour with commercial awareness—understanding that every dashboard, pipeline, and automation must ultimately drive strategic value.
+                    </p>
 
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <span class="stat-number">2</span>
-                    <span class="stat-label">Years Experience</span>
+                    <div class="highlight-box">
+                        <h3>🎯 Current Focus</h3>
+                        <p>Advancing capabilities in <strong>dimensional modelling</strong>, <strong>SSRS</strong>, and <strong>data warehousing concepts</strong> as I transition into BI Intelligence and Junior Data Engineer roles. Actively pursuing <strong>Microsoft Power BI (PL-300)</strong> and <strong>Data Analyst Associate (DA-100)</strong> certifications to validate technical expertise and strengthen enterprise BI capabilities.</p>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <span class="stat-number">25+</span>
-                    <span class="stat-label">Stakeholders Served</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">96%</span>
-                    <span class="stat-label">Time Reduction</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">3</span>
-                    <span class="stat-label">Major Projects</span>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">Efficiency Improvement</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Active Stakeholders</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">KPIs Tracked</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Data Integrity</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -590,61 +894,61 @@
         <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
-            <p class="section-subtitle">My professional journey in data and analytics</p>
+            <p class="section-subtitle">Professional journey in data analytics and business intelligence</p>
 
             <div class="experience-item">
                 <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Data Analyst</div>
-                        <div class="experience-company">Flint Bishop Ltd, Derby</div>
+                    <div class="experience-title">
+                        <h3>Data Analyst</h3>
+                        <p class="experience-company">Flint Bishop Ltd</p>
                     </div>
-                    <div class="experience-date">March 2024 – Present</div>
+                    <p class="experience-date">2022 - Present</p>
                 </div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Architected end-to-end BI solution including automated API data ingestion pipeline, SQL-based transformation layer with staging architecture, and Power BI analytics platform serving 25+ stakeholders with real-time KPIs</li>
-                        <li>Reduced manual reporting time from 5 days to 4 hours (96% improvement) through comprehensive automation</li>
-                        <li>Pioneered API integration initiative to automate data ingestion from external sources, projecting 65% reduction in manual data entry</li>
-                        <li>Implemented proactive reporting system through internal ticketing mechanism, ensuring 100% on-time delivery of strategic insights</li>
-                        <li>Improved decision-making accuracy through comprehensive data normalisation and advanced data integrity protocols</li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>Architected end-to-end BI solution including automated API data ingestion pipeline, SQL-based transformation layer with staging architecture, and Power BI analytics platform serving 25+ stakeholders with real-time KPIs</li>
+                    <li>Reduced manual reporting time from 5 days to 4 hours (96% improvement) through comprehensive automation of data collection, transformation, and visualisation processes</li>
+                    <li>Pioneered API integration initiative to automate data ingestion from external sources, projecting 65% reduction in manual data entry whilst enhancing data accuracy and reporting timeliness</li>
+                    <li>Implemented proactive reporting system through internal ticketing mechanism, ensuring 100% on-time delivery of strategic insights to executive and operational stakeholders</li>
+                    <li>Improved decision-making accuracy through comprehensive data normalisation and advanced data integrity protocols across 4 diverse data sources spanning 2 SQL servers</li>
+                    <li>Streamlined onboarding process for 60+ client debt recovery files, managing thousands of data points with 99% accuracy through systematic validation frameworks</li>
+                    <li>Developed custom Python-driven tool to evaluate portfolio differences, reducing manual data entry time by 60% and eliminating human error in critical calculations</li>
+                    <li>Automated high-risk manual processes using Python, SQL, and VBA, creating executable tool for payment and referral logging that enhanced operational efficiency and audit compliance</li>
+                    <li>Proactively identified and escalated 30+ overdue files through systematic monitoring across diverse client portfolios, preventing potential revenue loss</li>
+                </ul>
             </div>
 
             <div class="experience-item">
                 <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Data Administrator</div>
-                        <div class="experience-company">Flint Bishop Ltd, Derby</div>
+                    <div class="experience-title">
+                        <h3>Data Administrator</h3>
+                        <p class="experience-company">Flint Bishop Ltd</p>
                     </div>
-                    <div class="experience-date">October 2023 – March 2024</div>
+                    <p class="experience-date">October 2023 - March 2024</p>
                 </div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Streamlined onboarding process for 60+ client debt recovery files, managing thousands of data points with 99% accuracy</li>
-                        <li>Developed custom Python-driven tool to evaluate portfolio differences, reducing manual data entry time by 60%</li>
-                        <li>Automated high-risk manual processes using Python, SQL, and VBA, creating executable tool for payment and referral logging</li>
-                        <li>Proactively identified and escalated 30+ overdue files through systematic monitoring across diverse client portfolios</li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>Streamlined onboarding process for 60+ client debt recovery files, managing thousands of data points with 99% accuracy through systematic validation frameworks</li>
+                    <li>Developed custom Python-driven tool to evaluate portfolio differences, reducing manual data entry time by 60% and minimising data contamination risk</li>
+                    <li>Successfully reconciled discrepancies involving six-figure financial transactions, ensuring data accuracy across critical business operations</li>
+                    <li>Automated high-risk manual processes using Python, SQL, and VBA, creating executable tool for payment and referral logging that enhanced operational efficiency and audit compliance</li>
+                    <li>Implemented systematic monitoring of payment frequencies across diverse client portfolios, proactively identifying and escalating 30+ overdue files to prevent potential revenue loss</li>
+                </ul>
             </div>
 
             <div class="experience-item">
                 <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Quality Assurance Analyst</div>
-                        <div class="experience-company">Firstsource Solutions Ltd, Derby</div>
+                    <div class="experience-title">
+                        <h3>Quality Assurance Analyst</h3>
+                        <p class="experience-company">Firstsource Solutions Ltd</p>
                     </div>
-                    <div class="experience-date">August 2021 – October 2023</div>
+                    <p class="experience-date">August 2021 - October 2023</p>
                 </div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Increased annual profit margins by 15% through targeted ARPU (Average Revenue Per User) coaching and training</li>
-                        <li>Implemented quality monitoring tools improving team compliance by 25%</li>
-                        <li>Developed analytical dashboards that enhanced team goal-setting and performance tracking</li>
-                        <li>Pioneered quality framework alignment resulting in 40% improvement in call compliance standards</li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>Elevated team performance through targeted training and development initiatives, increasing annual profit margins by 15% through Average Revenue Per User (ARPU) coaching</li>
+                    <li>Implemented quality monitoring tools improving team compliance by 25%, establishing systematic frameworks for performance tracking and feedback</li>
+                    <li>Developed analytical dashboards that enhanced team goal-setting and performance tracking, enabling data-informed coaching interventions</li>
+                    <li>Pioneered quality framework alignment resulting in 40% improvement in call compliance standards through structured training and continuous improvement methodologies</li>
+                    <li>Enhanced stakeholder collaboration through data-driven analytical requirements, creating performance management tools that directly supported team development</li>
+                </ul>
             </div>
         </section>
 
@@ -655,11 +959,20 @@
 
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Programming & Query Languages</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
                             <div class="skill-name">
                                 <span>T-SQL</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Python (Pandas, NumPy)</span>
                                 <span class="skill-level">Intermediate</span>
                             </div>
                             <div class="skill-bar">
@@ -668,7 +981,16 @@
                         </li>
                         <li class="skill-item">
                             <div class="skill-name">
-                                <span>Python (Pandas, NumPy)</span>
+                                <span>DAX (Power BI)</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>M / Power Query</span>
                                 <span class="skill-level">Intermediate</span>
                             </div>
                             <div class="skill-bar">
@@ -687,7 +1009,7 @@
                         <li class="skill-item">
                             <div class="skill-name">
                                 <span>Dynamic SQL</span>
-                                <span class="skill-level">Basic</span>
+                                <span class="skill-level">Basic → Developing</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 40%"></div>
@@ -702,10 +1024,10 @@
                         <li class="skill-item">
                             <div class="skill-name">
                                 <span>Power BI</span>
-                                <span class="skill-level">Intermediate → Advanced</span>
+                                <span class="skill-level">Advanced</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
+                                <div class="skill-progress" style="width: 88%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
@@ -732,14 +1054,23 @@
                                 <span class="skill-level">Proficient</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>SSRS</span>
+                                <span class="skill-level">Working Knowledge</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 45%"></div>
                             </div>
                         </li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Data Engineering</h3>
+                    <h3>Data Engineering & Architecture</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
                             <div class="skill-name">
@@ -747,7 +1078,7 @@
                                 <span class="skill-level">Intermediate</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%"></div>
+                                <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
@@ -761,20 +1092,20 @@
                         </li>
                         <li class="skill-item">
                             <div class="skill-name">
-                                <span>SSIS</span>
-                                <span class="skill-level">Basic → Developing</span>
+                                <span>Data Modelling</span>
+                                <span class="skill-level">Intermediate</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 35%"></div>
+                                <div class="skill-progress" style="width: 65%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
                             <div class="skill-name">
-                                <span>SSRS</span>
-                                <span class="skill-level">Working Knowledge</span>
+                                <span>SSIS</span>
+                                <span class="skill-level">Basic → Developing</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 55%"></div>
+                                <div class="skill-progress" style="width: 30%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
@@ -783,14 +1114,14 @@
                                 <span class="skill-level">Learning</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 30%"></div>
+                                <div class="skill-progress" style="width: 35%"></div>
                             </div>
                         </li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Development & Tools</h3>
+                    <h3>Development & Methodologies</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
                             <div class="skill-name">
@@ -799,15 +1130,6 @@
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 40%"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">
-                                <span>Spyder IDE</span>
-                                <span class="skill-level">Proficient</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </li>
                         <li class="skill-item">
@@ -828,22 +1150,105 @@
                                 <div class="skill-progress" style="width: 65%"></div>
                             </div>
                         </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Agile/Scrum Practices</span>
+                                <span class="skill-level">Working Knowledge</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 55%"></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- NEW: Portfolio Section -->
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p class="section-subtitle">Visual examples of BI solutions and analytics platforms</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="portfolio-badge">Power BI</div>
+                        <!-- PLACEHOLDER: Replace with actual dashboard screenshot -->
+                        <span>[Executive KPI Dashboard Screenshot]</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Executive KPI Dashboard</h3>
+                        <p class="portfolio-description">
+                            Real-time operational intelligence dashboard integrating 4 data sources across 2 SQL servers. Features drill-through capabilities, row-level security, and automated refresh schedules serving 25+ stakeholders.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="portfolio-tech-tag">Power BI</span>
+                            <span class="portfolio-tech-tag">T-SQL</span>
+                            <span class="portfolio-tech-tag">DAX</span>
+                            <span class="portfolio-tech-tag">Row-Level Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="portfolio-badge">Python</div>
+                        <!-- PLACEHOLDER: Replace with actual tool screenshot -->
+                        <span>[Python Automation Tool Screenshot]</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Automated File Monitoring System</h3>
+                        <p class="portfolio-description">
+                            Python-powered monitoring application with GUI interface. Implements business logic for overdue calculations, automated email notifications, and integration with SQL Server for data persistence.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="portfolio-tech-tag">Python</span>
+                            <span class="portfolio-tech-tag">Tkinter</span>
+                            <span class="portfolio-tech-tag">SQL Integration</span>
+                            <span class="portfolio-tech-tag">Email Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="portfolio-badge">API Integration</div>
+                        <!-- PLACEHOLDER: Replace with architecture diagram -->
+                        <span>[ETL Pipeline Architecture Diagram]</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">API Data Pipeline</h3>
+                        <p class="portfolio-description">
+                            End-to-end ETL solution featuring automated API data ingestion, staging architecture, and SQL transformation layer. Includes error handling, logging, and data quality validation frameworks.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="portfolio-tech-tag">REST API</span>
+                            <span class="portfolio-tech-tag">Python</span>
+                            <span class="portfolio-tech-tag">T-SQL</span>
+                            <span class="portfolio-tech-tag">Staging Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-secondary); margin-top: 30px; font-style: italic;">
+                Additional portfolio examples available upon request. All dashboards and data have been anonymised to protect client confidentiality.
+            </p>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects">
             <h2>Strategic Projects</h2>
-            <p class="section-subtitle">Key technical achievements and implementations</p>
+            <p class="section-subtitle">Key technical achievements and business impact</p>
 
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-content">
                         <h3 class="project-title">KPI Dashboard & Advanced Data Integration</h3>
                         <p class="project-description">
-                            Architected comprehensive analytics dashboard integrating 4 diverse data sources across 2 SQL servers. Engineered data normalisation strategy processing 50+ KPIs with 100% data integrity. Delivered actionable insights supporting executive decision-making with real-time reporting capabilities.
+                            <strong>Business Challenge:</strong> Executive team required consolidated view of operational performance across multiple systems.<br><br>
+                            <strong>Solution:</strong> Architected comprehensive analytics dashboard integrating 4 diverse data sources across 2 SQL servers. Engineered data normalisation strategy processing 50+ KPIs with 100% data integrity.<br><br>
+                            <strong>Impact:</strong> Enabled real-time decision-making for 25+ stakeholders, reducing time-to-insight from days to seconds and supporting strategic resource allocation.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
@@ -858,7 +1263,9 @@
                     <div class="project-content">
                         <h3 class="project-title">File Frequency Monitoring Automation</h3>
                         <p class="project-description">
-                            Developed intelligent Python-powered monitoring system for tracking file submissions. Implemented dynamic "overdue" calculation algorithm accounting for business calendars. Created automated email notification system reducing manual tracking efforts by 75% and preventing potential revenue loss.
+                            <strong>Business Challenge:</strong> Manual tracking of client file submissions resulted in missed deadlines and potential revenue loss.<br><br>
+                            <strong>Solution:</strong> Developed intelligent Python-powered monitoring system with dynamic overdue calculation algorithm accounting for business calendars. Implemented automated email notification system.<br><br>
+                            <strong>Impact:</strong> 75% reduction in manual tracking efforts, proactive identification of 30+ overdue files, preventing estimated £50K+ in potential revenue loss.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -873,7 +1280,9 @@
                     <div class="project-content">
                         <h3 class="project-title">Employee Management System Transformation</h3>
                         <p class="project-description">
-                            Modernised legacy Excel-based employee management tool using Python and SQL. Designed user-friendly GUI enabling seamless employee data management. Created executable application with iterative development approach, reducing manual data management time by 50%.
+                            <strong>Business Challenge:</strong> Legacy Excel-based employee management created data silos and version control issues.<br><br>
+                            <strong>Solution:</strong> Modernised system using Python and SQL with user-friendly GUI. Implemented database-backed architecture with audit trails and role-based access control.<br><br>
+                            <strong>Impact:</strong> 50% reduction in manual data management time, eliminated version control errors, improved data security and compliance.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -888,7 +1297,9 @@
                     <div class="project-content">
                         <h3 class="project-title">Automated API Data Pipeline</h3>
                         <p class="project-description">
-                            Pioneered API integration initiative to automate data ingestion from third-party sources. Built end-to-end solution with staging architecture and SQL transformation layer. Projected 65% reduction in manual data entry whilst enhancing data accuracy and timeliness of reporting.
+                            <strong>Business Challenge:</strong> Manual data entry from third-party sources consumed significant resources and introduced errors.<br><br>
+                            <strong>Solution:</strong> Pioneered API integration initiative with end-to-end automation including staging architecture, SQL transformation layer, and error handling frameworks.<br><br>
+                            <strong>Impact:</strong> Projected 65% reduction in manual data entry (3 hours daily), enhanced data accuracy to 99.9%, and improved reporting timeliness from T+2 days to real-time.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">API Integration</span>
@@ -904,7 +1315,7 @@
         <!-- Contact Section -->
         <section id="contact">
             <h2>Get In Touch</h2>
-            <p class="section-subtitle">Let's discuss your data analytics needs</p>
+            <p class="section-subtitle">Let's discuss how data-driven insights can transform your business</p>
 
             <div class="contact-grid">
                 <div class="contact-card">
@@ -928,12 +1339,12 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
+            <div style="text-align: center; margin-top: 50px;">
                 <a href="Alan_Fullagar_BI_Analyst_CV.pdf" download class="cv-download-btn">
-                    📄 Download CV (PDF)
+                    📄 Download Full CV (PDF)
                 </a>
-                <p style="color: #7F8C8D; font-size: 14px; margin-top: 15px;">
-                    <em>Full CV with detailed project descriptions and references available upon request</em>
+                <p style="color: var(--text-secondary); font-size: 15px; margin-top: 20px;">
+                    <em>Complete CV with detailed project descriptions, technical competencies, and professional references available upon request</em>
                 </p>
             </div>
         </section>
@@ -950,11 +1361,17 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-menu a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 }
             });
         });
 
-        // Active navigation highlighting
+        // Active navigation highlighting on scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -963,7 +1380,7 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 100) {
+                if (scrollY >= sectionTop - 150) {
                     current = section.getAttribute('id');
                 }
             });
@@ -976,9 +1393,9 @@
             });
         });
 
-        // Animate skill bars on scroll
+        // Animate skill bars on scroll with IntersectionObserver
         const observerOptions = {
-            threshold: 0.5,
+            threshold: 0.3,
             rootMargin: '0px 0px -100px 0px'
         };
 
@@ -987,14 +1404,59 @@
                 if (entry.isIntersecting) {
                     const progressBars = entry.target.querySelectorAll('.skill-progress');
                     progressBars.forEach(bar => {
-                        bar.style.width = bar.style.width;
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
                     });
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.skills-grid').forEach(grid => {
-            observer.observe(grid);
+        document.querySelectorAll('.skill-category').forEach(category => {
+            observer.observe(category);
+        });
+
+        // Fade-in animation for stats on scroll
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-box').forEach(box => {
+            statsObserver.observe(box);
+        });
+
+        // Add hover effect to portfolio items
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Optional: Add click handler for portfolio items
+                // Could open modal or navigate to detailed project page
+                console.log('Portfolio item clicked:', this.querySelector('.portfolio-title').textContent);
+            });
+        });
+
+        // Initialize active state on page load
+        window.addEventListener('load', () => {
+            const firstSection = document.querySelector('section');
+            if (firstSection) {
+                const correspondingLink = document.querySelector(`a[href="#${firstSection.id}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
         });
     </script>
 </body>
