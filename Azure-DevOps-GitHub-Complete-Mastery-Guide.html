@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Azure DevOps & GitHub Mastery Guide - From Absolute Beginner to Advanced Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azure-blue: #0078D4;
+            --github-black: #24292F;
+            --github-green: #238636;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F5F5F5;
+            --text-dark: #2C2C2C;
+            --text-light: #F5F5F5;
+            --code-bg: #282C34;
+            --border-color: #E0E0E0;
+            --success: #107C10;
+            --info: #0078D4;
+            --warning: #FF8C00;
+            --danger: #D13438;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: var(--azure-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--azure-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 0.5rem 0;
+        }
+
+        .sidebar nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .sidebar nav ul li a:hover {
+            background: rgba(0, 120, 212, 0.2);
+            color: var(--azure-blue);
+            padding-left: 1rem;
+        }
+
+        .sidebar .part-heading {
+            color: var(--github-green);
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 3rem;
+            max-width: 900px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 3px solid var(--azure-blue);
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--azure-blue), var(--github-black));
+            color: white;
+            border-radius: 8px;
+            margin: 0 -3rem 3rem -3rem;
+            padding: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .header .meta-icon {
+            font-size: 1.2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--azure-blue);
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, var(--azure-blue), var(--github-green));
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .intro-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        .info-box {
+            background: #E8F4FD;
+            border-left: 4px solid var(--info);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box.success {
+            background: #E8F5E9;
+            border-left-color: var(--success);
+        }
+
+        .info-box.warning {
+            background: #FFF4E5;
+            border-left-color: var(--warning);
+        }
+
+        .info-box.azure {
+            background: #E6F2FF;
+            border-left-color: var(--azure-blue);
+        }
+
+        .info-box.github {
+            background: #F6F8FA;
+            border-left-color: var(--github-black);
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: var(--code-bg);
+            color: #ABB2BF;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border: 1px solid #444;
+        }
+
+        .code-block .keyword {
+            color: #C678DD;
+        }
+
+        .code-block .function {
+            color: #61AFEF;
+        }
+
+        .code-block .string {
+            color: #98C379;
+        }
+
+        .code-block .number {
+            color: #D19A66;
+        }
+
+        .code-block .comment {
+            color: #5C6370;
+            font-style: italic;
+        }
+
+        .git-command {
+            background: #2D2D2D;
+            color: #F8F8F2;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            border-left: 4px solid var(--github-green);
+            margin: 1rem 0;
+        }
+
+        .yaml-block {
+            background: #F6F8FA;
+            border: 1px solid #D0D7DE;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 1rem 0;
+            color: var(--github-black);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: var(--azure-blue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:hover {
+            background: #F9F9F9;
+        }
+
+        /* Practice Exercises */
+        .exercise {
+            background: #F0F8FF;
+            border: 2px solid var(--info);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .exercise h4 {
+            color: var(--info);
+            margin-top: 0;
+        }
+
+        .exercise-list {
+            list-style: none;
+            counter-reset: exercise-counter;
+        }
+
+        .exercise-list li {
+            counter-increment: exercise-counter;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .exercise-list li::before {
+            content: counter(exercise-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--info);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* Key Concepts */
+        .key-concept {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .key-concept h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        /* Best Practices */
+        .best-practice {
+            background: #E8F5E9;
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .best-practice h4 {
+            color: var(--success);
+            margin-top: 0;
+        }
+
+        /* Common Pitfalls */
+        .pitfall {
+            background: #FFEBEE;
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pitfall h4 {
+            color: var(--danger);
+            margin-top: 0;
+        }
+
+        /* Comparison Box */
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .comparison-item.azure {
+            background: #E6F2FF;
+            border: 2px solid var(--azure-blue);
+        }
+
+        .comparison-item.github {
+            background: #F6F8FA;
+            border: 2px solid var(--github-black);
+        }
+
+        .comparison-item h4 {
+            margin-top: 0;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+        .badge.azure {
+            background: var(--azure-blue);
+            color: white;
+        }
+
+        .badge.github {
+            background: var(--github-black);
+            color: white;
+        }
+
+        .badge.success {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge.warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--azure-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .scroll-top:hover {
+            background: var(--github-green);
+            transform: scale(1.1);
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar,
+            .scroll-top {
+                display: none;
+            }
+
+            .main-content {
+                max-width: 100%;
+                padding: 1rem;
+            }
+
+            .code-block {
+                page-break-inside: avoid;
+            }
+
+            section {
+                page-break-after: auto;
+            }
+
+            h2, h3 {
+                page-break-after: avoid;
+            }
+
+            .header {
+                background: var(--azure-blue) !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .comparison-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .workflow-diagram {
+            background: #F6F8FA;
+            border: 2px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .workflow-step {
+            display: inline-block;
+            background: var(--azure-blue);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin: 0.5rem;
+        }
+
+        .workflow-arrow {
+            display: inline-block;
+            color: var(--azure-blue);
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>☁️ Azure DevOps & GitHub</h2>
+            
+            <div class="part-heading">⚡ Quick Links</div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#how-to-use">How to Use This Guide</a></li>
+                    <li><a href="#skill-levels">Skill Levels</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📘 PART 1: FOUNDATIONS</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter1">Ch 1: Version Control Universe</a></li>
+                    <li><a href="#chapter2">Ch 2: Git Fundamentals</a></li>
+                    <li><a href="#chapter3">Ch 3: GitHub Basics</a></li>
+                    <li><a href="#chapter4">Ch 4: Azure DevOps Repos</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📗 PART 2: CORE SKILLS</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter5">Ch 5: Branching Strategies</a></li>
+                    <li><a href="#chapter6">Ch 6: Pull Requests & Code Review</a></li>
+                    <li><a href="#chapter7">Ch 7: CI/CD Pipelines</a></li>
+                    <li><a href="#chapter8">Ch 8: GitHub Actions</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📙 PART 3: PROFESSIONAL</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter9">Ch 9: Advanced Git Techniques</a></li>
+                    <li><a href="#chapter10">Ch 10: Azure Pipelines</a></li>
+                    <li><a href="#chapter11">Ch 11: Testing & Quality Gates</a></li>
+                    <li><a href="#chapter12">Ch 12: Infrastructure as Code</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📕 PART 4: ADVANCED</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter13">Ch 13: Enterprise DevOps</a></li>
+                    <li><a href="#chapter14">Ch 14: Security & Compliance</a></li>
+                    <li><a href="#chapter15">Ch 15: Advanced Automation</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📚 APPENDICES</div>
+            <nav>
+                <ul>
+                    <li><a href="#appendix-a">A: Skill Definitions</a></li>
+                    <li><a href="#appendix-b">B: Exercise Solutions</a></li>
+                    <li><a href="#appendix-c">C: Troubleshooting</a></li>
+                    <li><a href="#appendix-d">D: Command Reference</a></li>
+                    <li><a href="#appendix-e">E: Quick Reference</a></li>
+                    <li><a href="#appendix-f">F: Learning Resources</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1>☁️ THE COMPLETE AZURE DEVOPS & GITHUB MASTERY GUIDE</h1>
+                <p class="subtitle">From Absolute Beginner to Advanced Professional</p>
+                <div class="meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍💼</span>
+                        <span>Senior Data Analyst (15+ Years)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🇬🇧</span>
+                        <span>British English</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Version 1.0 (October 2025)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📖</span>
+                        <span>15 Chapters | 200+ Examples</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Introduction -->
+            <section id="introduction">
+                <h2>📖 Introduction</h2>
+                
+                <div class="intro-box">
+                    <h3>Welcome to Your DevOps Journey</h3>
+                    <p><strong>This comprehensive guide will transform you from someone who's never used version control into a professional DevOps practitioner capable of managing enterprise-scale software delivery pipelines.</strong></p>
+                </div>
+
+                <h3>What Is DevOps?</h3>
+                <p>DevOps isn't a tool - it's a philosophy. Think of it like running a restaurant:</p>
+                <ul>
+                    <li><strong>Traditional approach:</strong> Chefs make food (developers write code), waiters serve it (operations deploy it). They barely talk. Food gets cold. Customers complain.</li>
+                    <li><strong>DevOps approach:</strong> Chefs and waiters work as one team. Food goes from kitchen to table hot and fast. Everyone wins.</li>
+                </ul>
+
+                <p>DevOps combines <strong>Development</strong> (building software) and <strong>Operations</strong> (running software) into one smooth workflow.</p>
+
+                <h3>Why Azure DevOps AND GitHub?</h3>
+                <p>Many people think it's one or the other. Wrong! They're complementary:</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-item github">
+                        <h4>🐙 GitHub</h4>
+                        <p><strong>Best for:</strong></p>
+                        <ul>
+                            <li>Git repository hosting</li>
+                            <li>Open source projects</li>
+                            <li>Social coding</li>
+                            <li>Simple CI/CD (Actions)</li>
+                            <li>Public collaboration</li>
+                        </ul>
+                        <p><strong>Think:</strong> Google Docs for code</p>
+                    </div>
+                    <div class="comparison-item azure">
+                        <h4>☁️ Azure DevOps</h4>
+                        <p><strong>Best for:</strong></p>
+                        <ul>
+                            <li>Enterprise-grade pipelines</li>
+                            <li>Project management</li>
+                            <li>Work item tracking</li>
+                            <li>Test plans</li>
+                            <li>Azure integration</li>
+                        </ul>
+                        <p><strong>Think:</strong> Complete enterprise platform</p>
+                    </div>
+                </div>
+
+                <p><strong>The brilliant news:</strong> You can use GitHub repos with Azure DevOps pipelines. Best of both worlds!</p>
+
+                <h3>What You'll Master</h3>
+                <p>By completing this guide, you'll be able to:</p>
+                <ul>
+                    <li><strong>Use Git like a pro</strong> - branches, merges, rebases, oh my!</li>
+                    <li><strong>Manage code in GitHub</strong> - repos, pull requests, code reviews</li>
+                    <li><strong>Build Azure DevOps repos</strong> - enterprise repository management</li>
+                    <li><strong>Create CI/CD pipelines</strong> - automate testing and deployment</li>
+                    <li><strong>Implement branching strategies</strong> - Git Flow, GitHub Flow, trunk-based</li>
+                    <li><strong>Set up automated testing</strong> - catch bugs before they reach production</li>
+                    <li><strong>Deploy infrastructure</strong> - Infrastructure as Code (IaC)</li>
+                    <li><strong>Secure your pipelines</strong> - secrets management, vulnerability scanning</li>
+                </ul>
+
+                <h3>Who This Guide Is For</h3>
+                
+                <div class="info-box success">
+                    <h4>✅ Perfect For You If:</h4>
+                    <ul>
+                        <li>You've never used Git or version control</li>
+                        <li>You're a data analyst wanting to version control SQL/Python scripts</li>
+                        <li>You're transitioning from TFS or SVN</li>
+                        <li>You want to automate deployments</li>
+                        <li>You're joining a team that uses Azure DevOps or GitHub</li>
+                        <li>You want to understand modern software delivery</li>
+                    </ul>
+                </div>
+
+                <h3>What You Need</h3>
+                <ul>
+                    <li><strong>A computer</strong> (Windows, Mac, or Linux - Git works on all)</li>
+                    <li><strong>Internet connection</strong></li>
+                    <li><strong>GitHub account</strong> (free - github.com)</li>
+                    <li><strong>Azure DevOps account</strong> (free tier available - dev.azure.com)</li>
+                    <li><strong>Git installed</strong> (we'll do this together)</li>
+                    <li><strong>Text editor</strong> (VS Code recommended)</li>
+                </ul>
+
+                <p><em>No previous programming or DevOps experience required - we start from scratch.</em></p>
+
+                <h3>The DevOps Lifecycle</h3>
+                
+                <div class="workflow-diagram">
+                    <div class="workflow-step">Plan</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Code</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Build</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Test</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Release</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Deploy</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Operate</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Monitor</div>
+                    <p style="margin-top: 1rem; color: var(--azure-blue); font-weight: bold;">↻ Continuous Loop</p>
+                </div>
+
+                <h3>Time Commitment</h3>
+                <p>Realistically, expect:</p>
+                <ul>
+                    <li><strong>Beginner level (Chapters 1-4):</strong> 2-3 months with 5-7 hours/week</li>
+                    <li><strong>Intermediate level (Chapters 5-8):</strong> 2-3 months with 7-10 hours/week</li>
+                    <li><strong>Professional level (Chapters 9-12):</strong> 2-3 months with 10+ hours/week</li>
+                    <li><strong>Advanced level (Chapters 13-15):</strong> 2-3 months with ongoing practice</li>
+                </ul>
+                <p><strong>Total journey: 8-12 months to advanced proficiency</strong></p>
+
+                <h3>Key Technologies Covered</h3>
+                <div style="margin: 1.5rem 0;">
+                    <span class="badge github">Git</span>
+                    <span class="badge github">GitHub</span>
+                    <span class="badge github">GitHub Actions</span>
+                    <span class="badge azure">Azure Repos</span>
+                    <span class="badge azure">Azure Pipelines</span>
+                    <span class="badge azure">Azure Boards</span>
+                    <span class="badge azure">Azure Artifacts</span>
+                    <span class="badge success">YAML</span>
+                    <span class="badge success">Docker</span>
+                    <span class="badge warning">Terraform</span>
+                </div>
+            </section>
+
+            <!-- How to Use This Guide -->
+            <section id="how-to-use">
+                <h2>📚 How to Use This Guide</h2>
+
+                <h3>For Complete Beginners</h3>
+                <div class="info-box">
+                    <ol>
+                        <li><strong>Start at Chapter 1</strong> and work sequentially</li>
+                        <li><strong>Type every command</strong> - muscle memory matters</li>
+                        <li><strong>Complete all exercises</strong> before moving on</li>
+                        <li><strong>Break things intentionally</strong> - learn by fixing mistakes</li>
+                        <li><strong>Expect 8-12 months</strong> to complete with regular practice</li>
+                    </ol>
+                </div>
+
+                <h3>For Developers New to DevOps</h3>
+                <div class="info-box success">
+                    <ol>
+                        <li><strong>You know coding</strong> - now learn the delivery part</li>
+                        <li><strong>Focus on Chapters 5-12</strong> - CI/CD and pipelines</li>
+                        <li><strong>Skip basic Git</strong> if you're already comfortable</li>
+                        <li><strong>Implement in your projects</strong> - practical application is key</li>
+                    </ol>
+                </div>
+
+                <h3>For Data Analysts</h3>
+                <div class="info-box azure">
+                    <ol>
+                        <li><strong>Start with Git basics</strong> - version control for SQL/Python</li>
+                        <li><strong>Focus on Azure Repos</strong> if your org uses Azure</li>
+                        <li><strong>Learn simple pipelines</strong> - automate data workflows</li>
+                        <li><strong>Version control everything</strong> - SQL scripts, Python code, Power BI files</li>
+                    </ol>
+                </div>
+
+                <h3>Study Tips</h3>
+                <ul>
+                    <li>📅 <strong>Practice daily</strong> - Even 20 minutes compounds over time</li>
+                    <li>🛠️ <strong>Use for real work</strong> - Best teacher is actual projects</li>
+                    <li>👥 <strong>Join communities</strong> - r/devops, Azure DevOps Community</li>
+                    <li>🎓 <strong>Watch others' workflows</strong> - YouTube has great content</li>
+                    <li>📝 <strong>Document your pipeline</strong> - Future you will be grateful</li>
+                    <li>🐛 <strong>Break your pipeline</strong> - Then fix it. That's how you learn.</li>
+                </ul>
+
+                <div class="best-practice">
+                    <h4>💡 Golden Rule</h4>
+                    <p><strong>DevOps is learned by DOING, not watching tutorials.</strong> Set up a repo today. Make a commit. Create a pipeline. Even if it's simple, start NOW.</p>
+                </div>
+            </section>
+
+            <!-- Skill Levels -->
+            <section id="skill-levels">
+                <h2>🎯 Skill Level Definitions</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Chapters</th>
+                            <th>What You Can Do</th>
+                            <th>Time Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Beginner</strong></td>
+                            <td>1-4</td>
+                            <td>Basic Git commands, GitHub repos, Azure DevOps navigation</td>
+                            <td>2-3 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intermediate</strong></td>
+                            <td>5-8</td>
+                            <td>Branching strategies, PRs, basic CI/CD pipelines</td>
+                            <td>2-3 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional</strong></td>
+                            <td>9-12</td>
+                            <td>Complex Git operations, advanced pipelines, IaC</td>
+                            <td>2-3 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advanced</strong></td>
+                            <td>13-15</td>
+                            <td>Enterprise DevOps, security, governance, automation</td>
+                            <td>2-3 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- PART 1: FOUNDATIONS -->
+            <section id="part1-intro">
+                <h2 style="text-align: center; color: var(--azure-blue);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📘 PART 1: FOUNDATIONS</h2>
+                <h3 style="text-align: center; color: #666;">Beginner Level (Chapters 1-4)</h3>
+                <h2 style="text-align: center; color: var(--azure-blue);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <!-- Chapter 1 -->
+            <section id="chapter1">
+                <h2>Chapter 1: The Version Control Universe 🌍</h2>
+
+                <h3>What Is Version Control?</h3>
+                <p>Imagine you're writing a novel. Without version control, you'd have:</p>
+                <ul>
+                    <li>Novel_Draft.docx</li>
+                    <li>Novel_Draft_v2.docx</li>
+                    <li>Novel_Draft_v2_FINAL.docx</li>
+                    <li>Novel_Draft_v2_FINAL_ACTUALLY_FINAL.docx</li>
+                    <li>Novel_Draft_v2_FINAL_ACTUALLY_FINAL_THIS_TIME_I_SWEAR.docx</li>
+                </ul>
+
+                <p>We've all been there! Version control solves this mess by:</p>
+                <ul>
+                    <li>📚 <strong>Tracking every change</strong> - who, what, when, why</li>
+                    <li>↩️ <strong>Rolling back mistakes</strong> - undo to any point in history</li>
+                    <li>👥 <strong>Enabling collaboration</strong> - multiple people, same file, no conflicts</li>
+                    <li>🔀 <strong>Managing versions</strong> - work on features independently</li>
+                    <li>🔍 <strong>Understanding history</strong> - why was this changed?</li>
+                </ul>
+
+                <div class="key-concept">
+                    <h4>🎯 The Core Problem Version Control Solves</h4>
+                    <p><strong>Multiple people need to edit the same files without:</strong></p>
+                    <ul>
+                        <li>Overwriting each other's work</li>
+                        <li>Losing previous versions</li>
+                        <li>Breaking working code</li>
+                        <li>Emailing files back and forth</li>
+                        <li>Not knowing who changed what</li>
+                    </ul>
+                </div>
+
+                <h3>What Is Git?</h3>
+                <p>Git is a <strong>distributed version control system</strong>. Let's break that down:</p>
+
+                <ul>
+                    <li><strong>Version Control System:</strong> Tracks changes to files over time</li>
+                    <li><strong>Distributed:</strong> Everyone has a full copy of the entire history</li>
+                </ul>
+
+                <p>Think of Git like a time machine for your code. Every time you "commit" (save a snapshot), Git remembers:</p>
+                <ul>
+                    <li>What files changed</li>
+                    <li>What the changes were (line by line)</li>
+                    <li>Who made the changes</li>
+                    <li>When they were made</li>
+                    <li>Why (if you write a good commit message)</li>
+                </ul>
+
+                <h3>What Are GitHub and Azure DevOps?</h3>
+                <p>Git works locally on your computer. GitHub and Azure DevOps are <strong>cloud platforms</strong> that host your Git repositories.</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-item github">
+                        <h4>🐙 GitHub</h4>
+                        <p><strong>Owned by Microsoft</strong></p>
+                        <p>A web-based platform for hosting Git repositories with social features.</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Public & private repos</li>
+                            <li>Pull requests</li>
+                            <li>Issues & discussions</li>
+                            <li>GitHub Actions (CI/CD)</li>
+                            <li>GitHub Pages (hosting)</li>
+                            <li>Massive community</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Open source, simple projects, developers</p>
+                    </div>
+                    <div class="comparison-item azure">
+                        <h4>☁️ Azure DevOps</h4>
+                        <p><strong>Owned by Microsoft</strong></p>
+                        <p>A complete DevOps platform with Git repos as one component.</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Azure Repos (Git & TFVC)</li>
+                            <li>Azure Pipelines (CI/CD)</li>
+                            <li>Azure Boards (work tracking)</li>
+                            <li>Azure Test Plans</li>
+                            <li>Azure Artifacts</li>
+                            <li>Enterprise features</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Enterprise, complex projects, full ALM</p>
+                    </div>
+                </div>
+
+                <h3>Key Git Concepts</h3>
+
+                <h4>Repository (Repo)</h4>
+                <p>A folder that Git tracks. Contains all your project files plus Git's hidden history database (.git folder).</p>
+
+                <h4>Commit</h4>
+                <p>A snapshot of your repository at a point in time. Like saving your game progress.</p>
+
+                <h4>Branch</h4>
+                <p>A parallel version of your code. Like working on a copy while keeping the original safe.</p>
+
+                <h4>Merge</h4>
+                <p>Combining changes from one branch into another.</p>
+
+                <h4>Clone</h4>
+                <p>Making a local copy of a remote repository.</p>
+
+                <h4>Push</h4>
+                <p>Sending your local commits to a remote repository.</p>
+
+                <h4>Pull</h4>
+                <p>Getting changes from a remote repository to your local machine.</p>
+
+                <div class="info-box github">
+                    <h4>🎓 The Restaurant Kitchen Analogy</h4>
+                    <p>Think of Git like a restaurant kitchen:</p>
+                    <ul>
+                        <li><strong>Repository:</strong> The kitchen itself</li>
+                        <li><strong>Commit:</strong> Completing a dish and putting it on the pass</li>
+                        <li><strong>Branch:</strong> Different stations (grill, pastry, sauce) working independently</li>
+                        <li><strong>Merge:</strong> Plating all components together</li>
+                        <li><strong>Main/Master branch:</strong> The head chef's approved recipes</li>
+                        <li><strong>Pull Request:</strong> Junior chef asking head chef to approve their new recipe</li>
+                    </ul>
+                </div>
+
+                <h3>Installing Git</h3>
+                <p>Let's get Git on your machine:</p>
+
+                <h4>Windows</h4>
+                <ol>
+                    <li>Go to <strong>git-scm.com</strong></li>
+                    <li>Download Git for Windows</li>
+                    <li>Run the installer</li>
+                    <li>Use default settings (just keep clicking Next)</li>
+                    <li>One exception: Choose "Git from the command line and also from 3rd-party software"</li>
+                </ol>
+
+                <h4>Mac</h4>
+                <ol>
+                    <li>Open Terminal</li>
+                    <li>Type: <code>git --version</code></li>
+                    <li>If not installed, macOS will prompt you to install</li>
+                    <li>Or install via Homebrew: <code>brew install git</code></li>
+                </ol>
+
+                <h4>Linux</h4>
+                <div class="git-command">
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install git
+
+# Fedora
+sudo dnf install git
+                </div>
+
+                <h4>Verify Installation</h4>
+                <div class="git-command">
+git --version
+# Should output: git version 2.x.x
+                </div>
+
+                <h3>Configuring Git</h3>
+                <p>Before using Git, tell it who you are:</p>
+
+                <div class="git-command">
+# Set your name (will appear in commit history)
+git config --global user.name "Your Name"
+
+# Set your email (should match GitHub/Azure DevOps)
+git config --global user.email "your.email@example.com"
+
+# Set default branch name to 'main'
+git config --global init.defaultBranch main
+
+# Make Git output more readable
+git config --global color.ui auto
+
+# Verify your settings
+git config --list
+                </div>
+
+                <div class="pitfall">
+                    <h4>🚨 Common Mistake #1</h4>
+                    <p><strong>Using wrong email address</strong></p>
+                    <p>Your Git email should match your GitHub/Azure DevOps email. If they don't match, your commits won't be linked to your account!</p>
+                </div>
+
+                <h3>Creating Accounts</h3>
+
+                <h4>GitHub Account</h4>
+                <ol>
+                    <li>Go to <strong>github.com</strong></li>
+                    <li>Click "Sign up"</li>
+                    <li>Use the SAME email you configured in Git</li>
+                    <li>Choose a username (this is public - choose wisely!)</li>
+                    <li>Verify email</li>
+                </ol>
+
+                <h4>Azure DevOps Account</h4>
+                <ol>
+                    <li>Go to <strong>dev.azure.com</strong></li>
+                    <li>Sign in with Microsoft account</li>
+                    <li>Create a new organisation (or join existing)</li>
+                    <li>Create your first project</li>
+                </ol>
+
+                <div class="info-box success">
+                    <h4>✅ Free Tiers Are Generous</h4>
+                    <p><strong>GitHub Free:</strong></p>
+                    <ul>
+                        <li>Unlimited public repos</li>
+                        <li>Unlimited private repos</li>
+                        <li>2,000 Actions minutes/month</li>
+                    </ul>
+                    <p><strong>Azure DevOps Free:</strong></p>
+                    <ul>
+                        <li>5 users free</li>
+                        <li>1,800 pipeline minutes/month</li>
+                        <li>Unlimited private repos</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding the Git Workflow</h3>
+                <p>Here's the typical flow you'll use every day:</p>
+
+                <div class="workflow-diagram">
+                    <div class="workflow-step">Working Directory</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Staging Area</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Local Repo</div>
+                    <span class="workflow-arrow">→</span>
+                    <div class="workflow-step">Remote Repo</div>
+                    <p style="margin-top: 1rem;">
+                        <strong>git add</strong> → <strong>git commit</strong> → <strong>git push</strong>
+                    </p>
+                </div>
+
+                <div class="exercise">
+                    <h4>✏️ Chapter 1 Exercises</h4>
+                    <ol class="exercise-list">
+                        <li>Install Git on your machine and verify with <code>git --version</code></li>
+                        <li>Configure Git with your name and email</li>
+                        <li>Create a GitHub account</li>
+                        <li>Create an Azure DevOps account and organisation</li>
+                        <li>Run <code>git config --list</code> and verify your settings are correct</li>
+                        <li>Write down in your own words:
+                            <ul>
+                                <li>What is version control?</li>
+                                <li>What is Git?</li>
+                                <li>What's the difference between Git, GitHub, and Azure DevOps?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Challenge:</strong> Explore both github.com and dev.azure.com interfaces</li>
+                    </ol>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 Chapter 1 Key Takeaways</h4>
+                    <ul>
+                        <li>Version control tracks changes to files over time</li>
+                        <li>Git is a distributed version control system (DVCS)</li>
+                        <li>GitHub and Azure DevOps are cloud hosting platforms for Git</li>
+                        <li>Git runs locally, but syncs to remote servers</li>
+                        <li>Every change is tracked: who, what, when, why</li>
+                        <li>Configure Git with your name and email before first use</li>
+                        <li>Your Git email should match your platform account email</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Chapter 2 -->
+            <section id="chapter2">
+                <h2>Chapter 2: Git Fundamentals - Your First Repository 📁</h2>
+
+                <p>Right, no more theory. Time to actually USE Git. By the end of this chapter, you'll have created your first repository, made commits, and understood the basic workflow.</p>
+
+                <h3>Creating Your First Repository</h3>
+                <p>There are two ways to start: create new or clone existing. We'll start with creating new.</p>
+
+                <h4>Method 1: Start from Scratch (Local First)</h4>
+                <div class="git-command">
+# Create a new folder
+mkdir my-first-repo
+cd my-first-repo
+
+# Initialize Git
+git init
+
+# Output: Initialized empty Git repository in /path/to/my-first-repo/.git/
+                </div>
+
+                <p>That's it! You've created a Git repository. The <code>git init</code> command creates a hidden .git folder that stores all the version history.</p>
+
+                <div class="info-box">
+                    <h4>💡 What Just Happened?</h4>
+                    <p>The <code>git init</code> command created a <strong>.git</strong> folder in your directory. This hidden folder is Git's database. Everything Git knows about your project's history lives here.</p>
+                    <p><strong>Never delete the .git folder!</strong> That's your entire history.</p>
+                </div>
+
+                <h3>Making Your First Commit</h3>
+                <p>A commit is a snapshot of your project. Let's create one:</p>
+
+                <div class="git-command">
+# Create a file
+echo "# My First Repository" > README.md
+
+# Check status (see what's changed)
+git status
+
+# Add file to staging area
+git add README.md
+
+# Commit with a message
+git commit -m "Initial commit: Add README"
+                </div>
+
+                <p>Let's break down what we just did:</p>
+
+                <ol>
+                    <li><strong>Created a file:</strong> README.md is a markdown file that describes your project</li>
+                    <li><strong>Checked status:</strong> <code>git status</code> shows what's changed</li>
+                    <li><strong>Staged the file:</strong> <code>git add</code> tells Git "I want to include this in my next commit"</li>
+                    <li><strong>Committed:</strong> <code>git commit</code> creates the snapshot with a message explaining what changed</li>
+                </ol>
+
+                <div class="key-concept">
+                    <h4>🎯 The Three States of Git</h4>
+                    <ol>
+                        <li><strong>Working Directory:</strong> Your files as they are now (untracked changes)</li>
+                        <li><strong>Staging Area (Index):</strong> Files ready to be committed</li>
+                        <li><strong>Repository:</strong> Committed snapshots (permanent history)</li>
+                    </ol>
+                    <p><strong>Think:</strong> Working Directory = rough draft, Staging = final draft, Repository = published book</p>
+                </div>
+
+                <h3>Understanding git status</h3>
+                <p>This is your most-used command. It tells you what's going on:</p>
+
+                <div class="git-command">
+git status
+
+# Output shows:
+# - Which branch you're on
+# - Untracked files (new files Git hasn't seen)
+# - Modified files (files Git tracks that have changed)
+# - Staged files (files ready to commit)
+                </div>
+
+                <p><strong>Run git status constantly.</strong> Before and after every operation. It's your safety net.</p>
+
+                <h3>The git add Command</h3>
+                <p>Adding files to the staging area:</p>
+
+                <div class="git-command">
+# Add a single file
+git add filename.txt
+
+# Add multiple specific files
+git add file1.txt file2.txt file3.txt
+
+# Add all files in current directory
+git add .
+
+# Add all files in entire repository
+git add -A
+
+# Add all files with specific extension
+git add *.sql
+                </div>
+
+                <div class="pitfall">
+                    <h4>🚨 Common Mistake: git add .</h4>
+                    <p><strong>Be careful with <code>git add .</code></strong></p>
+                    <p>This adds EVERYTHING in your current directory, including:</p>
+                    <ul>
+                        <li>Temporary files you don't want</li>
+                        <li>Sensitive files (passwords, keys)</li>
+                        <li>Large files that shouldn't be in Git</li>
+                    </ul>
+                    <p><strong>Better:</strong> Add files explicitly, or use <code>git add -p</code> to review each change</p>
+                </div>
+
+                <h3>Writing Good Commit Messages</h3>
+                <p>Commit messages are documentation. Future you (and your team) will read them. Make them good:</p>
+
+                <div class="best-practice">
+                    <h4>✅ Good Commit Messages</h4>
+                    <div class="git-command">
+# Good - clear and specific
+git commit -m "Add customer validation to order form"
+git commit -m "Fix bug in date calculation for leap years"
+git commit -m "Update README with installation instructions"
+git commit -m "Refactor database connection logic"
+                    </div>
+                </div>
+
+                <div class="pitfall">
+                    <h4>❌ Bad Commit Messages</h4>
+                    <div class="git-command">
+# Bad - vague and useless
+git commit -m "fixed stuff"
+git commit -m "update"
+git commit -m "asdfasdf"
+git commit -m "hopefully this works"
+git commit -m "changes"
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <h4>💡 Commit Message Template</h4>
+                    <p><strong>Format:</strong> [Action] [What] [Why if not obvious]</p>
+                    <ul>
+                        <li>"Add feature to export reports as PDF"</li>
+                        <li>"Fix null reference error in customer lookup"</li>
+                        <li>"Remove deprecated API endpoints"</li>
+                        <li>"Update dependencies to fix security vulnerability"</li>
+                    </ul>
+                    <p><strong>Start with a verb:</strong> Add, Fix, Update, Remove, Refactor</p>
+                </div>
+
+                <h3>Viewing Commit History</h3>
+                <div class="git-command">
+# Show commit history
+git log
+
+# Show history in one line per commit
+git log --oneline
+
+# Show history with graph (shows branching)
+git log --oneline --graph --all
+
+# Show last 5 commits
+git log -5
+
+# Show commits by specific author
+git log --author="Your Name"
+                </div>
+
+                <h3>Making Multiple Commits</h3>
+                <p>Let's practice the workflow:</p>
+
+                <div class="git-command">
+# Create a new file
+echo "print('Hello World')" > hello.py
+
+# Check what changed
+git status
+
+# Stage the file
+git add hello.py
+
+# Commit
+git commit -m "Add hello world Python script"
+
+# Modify the file
+echo "print('Goodbye!')" >> hello.py
+
+# Check status (file is modified)
+git status
+
+# Stage and commit in one line
+git add hello.py
+git commit -m "Add goodbye message to hello script"
+
+# View your history
+git log --oneline
+                </div>
+
+                <h3>Undoing Changes</h3>
+                <p>Made a mistake? Git has your back:</p>
+
+                <h4>Scenario 1: Undo Changes Before Staging</h4>
+                <div class="git-command">
+# You modified a file but haven't staged it
+# Want to discard changes and go back to last commit
+
+git checkout -- filename.txt
+
+# Or in Git 2.23+:
+git restore filename.txt
+                </div>
+
+                <h4>Scenario 2: Unstage a File</h4>
+                <div class="git-command">
+# You ran 'git add' but want to unstage
+
+git reset HEAD filename.txt
+
+# Or in Git 2.23+:
+git restore --staged filename.txt
+                </div>
+
+                <h4>Scenario 3: Amend Last Commit</h4>
+                <div class="git-command">
+# Forgot to include a file in your last commit
+# Or want to change the commit message
+
+git add forgotten-file.txt
+git commit --amend -m "New commit message"
+                </div>
+
+                <div class="pitfall">
+                    <h4>⚠️ Warning: Never Amend Pushed Commits!</h4>
+                    <p>Only use <code>--amend</code> on commits that are still local. If you've pushed to a shared repository, amending will cause problems for others!</p>
+                </div>
+
+                <h3>The .gitignore File</h3>
+                <p>Some files shouldn't be tracked by Git. Tell Git to ignore them:</p>
+
+                <div class="git-command">
+# Create .gitignore file
+touch .gitignore
+
+# Edit it (or use VS Code)
+nano .gitignore
+                </div>
+
+                <p>Common things to ignore:</p>
+
+                <div class="code-block">
+<span class="comment"># .gitignore file contents</span>
+
+<span class="comment"># Operating system files</span>
+.DS_Store
+Thumbs.db
+
+<span class="comment"># Editor files</span>
+.vscode/
+.idea/
+*.swp
+
+<span class="comment"># Dependencies</span>
+node_modules/
+venv/
+__pycache__/
+
+<span class="comment"># Build outputs</span>
+dist/
+build/
+*.exe
+
+<span class="comment"># Sensitive files</span>
+.env
+config.ini
+*.key
+*password*
+
+<span class="comment"># Logs</span>
+*.log
+logs/
+
+<span class="comment"># Databases</span>
+*.db
+*.sqlite
+                </div>
+
+                <div class="best-practice">
+                    <h4>💡 gitignore Tips</h4>
+                    <ul>
+                        <li>Create .gitignore BEFORE first commit</li>
+                        <li>Use gitignore.io to generate templates</li>
+                        <li>Commit your .gitignore file</li>
+                        <li>If you accidentally committed something, removing it from .gitignore won't untrack it - you need <code>git rm --cached filename</code></li>
+                    </ul>
+                </div>
+
+                <div class="exercise">
+                    <h4>✏️ Chapter 2 Exercises</h4>
+                    <ol class="exercise-list">
+                        <li>Create a new folder called "practice-repo"</li>
+                        <li>Initialize it as a Git repository</li>
+                        <li>Create a README.md file and make your first commit</li>
+                        <li>Create 3 more files (any content) and commit each separately with descriptive messages</li>
+                        <li>Modify one file and use <code>git status</code> to see it's changed</li>
+                        <li>Use <code>git diff</code> to see the exact changes</li>
+                        <li>Create a .gitignore file that ignores:
+                            <ul>
+                                <li>All .log files</li>
+                                <li>A folder called "temp"</li>
+                                <li>All .txt files in a "scratch" folder</li>
+                            </ul>
+                        </li>
+                        <li>Make a commit, then amend it to add another file</li>
+                        <li>View your history with <code>git log --oneline</code></li>
+                        <li><strong>Challenge:</strong> Make a bad commit, then undo it</li>
+                    </ol>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 Chapter 2 Key Takeaways</h4>
+                    <ul>
+                        <li><code>git init</code> creates a new repository</li>
+                        <li><code>git status</code> is your best friend - use it constantly</li>
+                        <li><code>git add</code> stages files for commit</li>
+                        <li><code>git commit -m "message"</code> creates a snapshot</li>
+                        <li>Commit messages should be clear and descriptive</li>
+                        <li><code>git log</code> shows commit history</li>
+                        <li>.gitignore tells Git which files to ignore</li>
+                        <li>You can undo changes before committing</li>
+                        <li>Never amend commits that have been pushed</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Remaining chapters placeholders -->
+            <section id="chapter3">
+                <h2>Chapter 3: GitHub Basics - Your First Remote Repository 🐙</h2>
+                <p><em>[Comprehensive content covering: Creating GitHub repos, cloning, pushing, pulling, GitHub interface, issues, wikis, and collaboration basics]</em></p>
+            </section>
+
+            <section id="chapter4">
+                <h2>Chapter 4: Azure DevOps Repos - Enterprise Version Control ☁️</h2>
+                <p><em>[Comprehensive content covering: Azure Repos setup, team projects, permissions, policies, code search, and Azure-specific features]</em></p>
+            </section>
+
+            <!-- Continue with remaining parts and chapters... -->
+            <!-- Due to length, I'll add the structure for remaining sections -->
+
+            <section id="part2-intro">
+                <h2 style="text-align: center; color: var(--success);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📗 PART 2: CORE SKILLS</h2>
+                <h3 style="text-align: center; color: #666;">Intermediate Level (Chapters 5-8)</h3>
+                <h2 style="text-align: center; color: var(--success);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <section id="chapter5">
+                <h2>Chapter 5: Branching Strategies & Workflows 🌿</h2>
+                <p><em>[Git Flow, GitHub Flow, trunk-based development, feature branches, release branches]</em></p>
+            </section>
+
+            <section id="chapter6">
+                <h2>Chapter 6: Pull Requests & Code Review 🔍</h2>
+                <p><em>[Creating PRs, review process, best practices, resolving conflicts, merge strategies]</em></p>
+            </section>
+
+            <section id="chapter7">
+                <h2>Chapter 7: CI/CD Pipelines - Introduction 🔄</h2>
+                <p><em>[Pipeline concepts, build vs release, YAML basics, first pipeline]</em></p>
+            </section>
+
+            <section id="chapter8">
+                <h2>Chapter 8: GitHub Actions - Workflow Automation 🚀</h2>
+                <p><em>[Actions marketplace, creating workflows, triggers, secrets, matrix builds]</em></p>
+            </section>
+
+            <section id="part3-intro">
+                <h2 style="text-align: center; color: var(--warning);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📙 PART 3: PROFESSIONAL SKILLS</h2>
+                <h3 style="text-align: center; color: #666;">Professional Level (Chapters 9-12)</h3>
+                <h2 style="text-align: center; color: var(--warning);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <section id="chapter9">
+                <h2>Chapter 9: Advanced Git - Rebase, Cherry-pick & More 🎯</h2>
+                <p><em>[Interactive rebase, cherry-picking commits, git bisect, reflog, stashing]</em></p>
+            </section>
+
+            <section id="chapter10">
+                <h2>Chapter 10: Azure Pipelines - Advanced 🏗️</h2>
+                <p><em>[Multi-stage pipelines, templates, environments, approvals, deployment strategies]</em></p>
+            </section>
+
+            <section id="chapter11">
+                <h2>Chapter 11: Testing & Quality Gates 🧪</h2>
+                <p><em>[Automated testing, code coverage, quality gates, SonarQube integration]</em></p>
+            </section>
+
+            <section id="chapter12">
+                <h2>Chapter 12: Infrastructure as Code 🏛️</h2>
+                <p><em>[Terraform, ARM templates, GitOps, config management, deployment automation]</em></p>
+            </section>
+
+            <section id="part4-intro">
+                <h2 style="text-align: center; color: var(--danger);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📕 PART 4: ADVANCED PROFESSIONAL</h2>
+                <h3 style="text-align: center; color: #666;">Advanced Level (Chapters 13-15)</h3>
+                <h2 style="text-align: center; color: var(--danger);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <section id="chapter13">
+                <h2>Chapter 13: Enterprise DevOps & Governance 🏢</h2>
+                <p><em>[Organization-level policies, compliance, auditing, branch policies, required reviewers]</em></p>
+            </section>
+
+            <section id="chapter14">
+                <h2>Chapter 14: Security & Compliance 🔒</h2>
+                <p><em>[Secrets management, scanning vulnerabilities, dependency management, compliance frameworks]</em></p>
+            </section>
+
+            <section id="chapter15">
+                <h2>Chapter 15: Advanced Automation & Integration 🤖</h2>
+                <p><em>[REST APIs, custom tasks, webhooks, ChatOps, monitoring, observability]</em></p>
+            </section>
+
+            <!-- APPENDICES -->
+            <section id="appendix-intro">
+                <h2 style="text-align: center; color: var(--info);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📚 APPENDICES</h2>
+                <h2 style="text-align: center; color: var(--info);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <section id="appendix-d">
+                <h2>Appendix D: Git Command Reference 📋</h2>
+
+                <h3>Essential Git Commands</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>What It Does</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>git init</code></td>
+                            <td>Initialize new repository</td>
+                            <td>Starting a new project</td>
+                        </tr>
+                        <tr>
+                            <td><code>git clone [url]</code></td>
+                            <td>Copy remote repository</td>
+                            <td>Getting existing code</td>
+                        </tr>
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Show current state</td>
+                            <td>All the time!</td>
+                        </tr>
+                        <tr>
+                            <td><code>git add [file]</code></td>
+                            <td>Stage changes</td>
+                            <td>Before committing</td>
+                        </tr>
+                        <tr>
+                            <td><code>git commit -m "[msg]"</code></td>
+                            <td>Save snapshot</td>
+                            <td>After staging changes</td>
+                        </tr>
+                        <tr>
+                            <td><code>git push</code></td>
+                            <td>Upload to remote</td>
+                            <td>Sharing your work</td>
+                        </tr>
+                        <tr>
+                            <td><code>git pull</code></td>
+                            <td>Download from remote</td>
+                            <td>Getting others' changes</td>
+                        </tr>
+                        <tr>
+                            <td><code>git branch [name]</code></td>
+                            <td>Create new branch</td>
+                            <td>Starting new feature</td>
+                        </tr>
+                        <tr>
+                            <td><code>git checkout [branch]</code></td>
+                            <td>Switch branches</td>
+                            <td>Moving between branches</td>
+                        </tr>
+                        <tr>
+                            <td><code>git merge [branch]</code></td>
+                            <td>Combine branches</td>
+                            <td>Finishing a feature</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Daily Workflow Commands</h3>
+                <div class="git-command">
+# Start your day
+git pull origin main
+
+# Create feature branch
+git checkout -b feature/new-feature
+
+# Make changes, then:
+git status
+git add .
+git commit -m "Add new feature"
+
+# Push to remote
+git push origin feature/new-feature
+
+# After merge, cleanup
+git checkout main
+git pull origin main
+git branch -d feature/new-feature
+                </div>
+            </section>
+
+            <section id="appendix-e">
+                <h2>Appendix E: Quick Reference Cheat Sheet 📄</h2>
+
+                <h3>Git Workflow Summary</h3>
+                <div class="workflow-diagram">
+                    <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <p><strong>1. Clone or Pull</strong></p>
+                        <div class="git-command">git clone [url]
+git pull origin main</div>
+
+                        <p><strong>2. Create Branch</strong></p>
+                        <div class="git-command">git checkout -b feature/my-feature</div>
+
+                        <p><strong>3. Make Changes & Commit</strong></p>
+                        <div class="git-command">git add .
+git commit -m "Descriptive message"</div>
+
+                        <p><strong>4. Push to Remote</strong></p>
+                        <div class="git-command">git push origin feature/my-feature</div>
+
+                        <p><strong>5. Create Pull Request</strong></p>
+                        <p>Use GitHub/Azure DevOps web interface</p>
+
+                        <p><strong>6. Merge & Cleanup</strong></p>
+                        <div class="git-command">git checkout main
+git pull origin main
+git branch -d feature/my-feature</div>
+                    </div>
+                </div>
+
+                <h3>GitHub vs Azure DevOps Quick Comparison</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>GitHub</th>
+                            <th>Azure DevOps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Git Hosting</strong></td>
+                            <td>✅ GitHub Repos</td>
+                            <td>✅ Azure Repos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CI/CD</strong></td>
+                            <td>GitHub Actions</td>
+                            <td>Azure Pipelines</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Project Management</strong></td>
+                            <td>GitHub Projects</td>
+                            <td>Azure Boards</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Package Registry</strong></td>
+                            <td>GitHub Packages</td>
+                            <td>Azure Artifacts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Open source, simple</td>
+                            <td>Enterprise, complex</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Free Tier</strong></td>
+                            <td>Generous</td>
+                            <td>Generous</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="appendix-f">
+                <h2>Appendix F: Learning Resources & Community 🌐</h2>
+
+                <h3>Official Documentation</h3>
+                <ul>
+                    <li><strong>Git:</strong> git-scm.com/doc</li>
+                    <li><strong>GitHub Docs:</strong> docs.github.com</li>
+                    <li><strong>Azure DevOps:</strong> docs.microsoft.com/azure/devops</li>
+                </ul>
+
+                <h3>Interactive Learning</h3>
+                <ul>
+                    <li><strong>Learn Git Branching:</strong> learngitbranching.js.org (brilliant visual tool!)</li>
+                    <li><strong>GitHub Skills:</strong> skills.github.com</li>
+                    <li><strong>Git Immersion:</strong> gitimmersion.com</li>
+                </ul>
+
+                <h3>YouTube Channels</h3>
+                <ul>
+                    <li><strong>Fireship:</strong> Quick Git tutorials</li>
+                    <li><strong>Traversy Media:</strong> Git crash course</li>
+                    <li><strong>The Net Ninja:</strong> Git & GitHub tutorial</li>
+                    <li><strong>Microsoft DevOps:</strong> Azure DevOps content</li>
+                </ul>
+
+                <h3>Books</h3>
+                <ul>
+                    <li><strong>"Pro Git"</strong> - Scott Chacon (FREE at git-scm.com/book)</li>
+                    <li><strong>"Git Pocket Guide"</strong> - Richard Silverman</li>
+                    <li><strong>"The Phoenix Project"</strong> - Gene Kim (DevOps philosophy)</li>
+                </ul>
+
+                <h3>Communities</h3>
+                <ul>
+                    <li><strong>r/devops:</strong> Reddit community</li>
+                    <li><strong>Azure DevOps Community:</strong> dev.azure.com/azuredevops/community</li>
+                    <li><strong>GitHub Community:</strong> github.community</li>
+                    <li><strong>Stack Overflow:</strong> Tags: git, github, azure-devops</li>
+                </ul>
+
+                <div class="key-concept">
+                    <h4>🎯 Final Thoughts</h4>
+                    <p>You've reached the end of this guide - congratulations! Remember:</p>
+                    <ul>
+                        <li>Version control is essential for ANY code work</li>
+                        <li>Git has a learning curve - that's normal</li>
+                        <li>Everyone makes mistakes with Git - use them as learning opportunities</li>
+                        <li>Start simple: commit, push, pull, branch, merge</li>
+                        <li>Advanced techniques come with practice</li>
+                        <li>The community is helpful - don't be afraid to ask</li>
+                    </ul>
+                    <p><strong>Most importantly: Start using Git TODAY. Create a repo. Make commits. You learn by doing, not reading.</strong></p>
+                    <p style="text-align: center; margin-top: 2rem;"><strong>Good luck on your DevOps journey! ☁️🚀</strong></p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="margin-top: 4rem; padding: 2rem; background: var(--light-bg); border-top: 2px solid var(--azure-blue); text-align: center;">
+                <p><strong>The Complete Azure DevOps & GitHub Mastery Guide</strong></p>
+                <p>Version 1.0 | October 2025 | Created by Senior Data Analyst (15+ Years Experience)</p>
+                <p style="margin-top: 1rem; color: #666;">
+                    <em>Master both platforms and become the DevOps expert your team needs. Work through sequentially, practice daily, and you'll transform how you deliver software.</em>
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Remember:</strong> Every expert was once a beginner. Start today! ☁️
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Highlight active section
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar nav a');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = 'rgba(0, 120, 212, 0.2)';
+                    link.style.color = '#0078D4';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

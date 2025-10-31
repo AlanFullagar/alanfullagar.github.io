@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete QA & Design Principles Mastery Guide - From Beginner to Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #D53F8C;
+            --test-green: #38A169;
+            --quality-blue: #3182CE;
+            --dark-bg: #1A202C;
+            --light-bg: #F7FAFC;
+            --text-dark: #2D3748;
+            --text-light: #F7FAFC;
+            --code-bg: #2D3748;
+            --border-color: #E2E8F0;
+            --success: #38A169;
+            --info: #3182CE;
+            --warning: #DD6B20;
+            --danger: #E53E3E;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            width: 320px;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 0.5rem 0;
+        }
+
+        .sidebar nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .sidebar nav ul li a:hover {
+            background: rgba(107, 70, 193, 0.2);
+            color: var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .sidebar .part-heading {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 3rem;
+            max-width: 900px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px;
+            margin: 0 -3rem 3rem -3rem;
+            padding: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .intro-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        .info-box {
+            background: #EBF8FF;
+            border-left: 4px solid var(--info);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box.success {
+            background: #F0FFF4;
+            border-left-color: var(--success);
+        }
+
+        .info-box.warning {
+            background: #FFFAF0;
+            border-left-color: var(--warning);
+        }
+
+        .info-box.danger {
+            background: #FFF5F5;
+            border-left-color: var(--danger);
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            color: #E2E8F0;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border: 1px solid #4A5568;
+        }
+
+        .code-block .keyword {
+            color: #C792EA;
+        }
+
+        .code-block .function {
+            color: #82AAFF;
+        }
+
+        .code-block .string {
+            color: #C3E88D;
+        }
+
+        .code-block .number {
+            color: #F78C6C;
+        }
+
+        .code-block .comment {
+            color: #697098;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:hover {
+            background: #F7FAFC;
+        }
+
+        .exercise {
+            background: #F0F8FF;
+            border: 2px solid var(--info);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .exercise h4 {
+            color: var(--info);
+            margin-top: 0;
+        }
+
+        .exercise-list {
+            list-style: none;
+            counter-reset: exercise-counter;
+        }
+
+        .exercise-list li {
+            counter-increment: exercise-counter;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .exercise-list li::before {
+            content: counter(exercise-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--info);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .key-concept h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .best-practice {
+            background: #F0FFF4;
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .best-practice h4 {
+            color: var(--success);
+            margin-top: 0;
+        }
+
+        .pitfall {
+            background: #FFF5F5;
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pitfall h4 {
+            color: var(--danger);
+            margin-top: 0;
+        }
+
+        .principle-box {
+            background: linear-gradient(135deg, #B794F4, #F687B3);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .principle-box h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .checklist {
+            background: #FFFAF0;
+            border: 2px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .checklist h4 {
+            color: var(--warning);
+            margin-top: 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: var(--warning);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+        .badge.test {
+            background: var(--test-green);
+            color: white;
+        }
+
+        .badge.quality {
+            background: var(--quality-blue);
+            color: white;
+        }
+
+        .badge.design {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        @media print {
+            .sidebar, .scroll-top { display: none; }
+            .main-content { max-width: 100%; padding: 1rem; }
+            .code-block, section { page-break-inside: avoid; }
+            h2, h3 { page-break-after: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { padding: 1.5rem; }
+            .header h1 { font-size: 1.8rem; }
+            .header .meta { flex-direction: column; gap: 0.5rem; }
+        }
+
+        .testing-pyramid {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .pyramid-level {
+            padding: 1rem;
+            margin: 0.5rem auto;
+            border-radius: 4px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .pyramid-ui {
+            background: #E53E3E;
+            width: 40%;
+        }
+
+        .pyramid-integration {
+            background: #DD6B20;
+            width: 60%;
+        }
+
+        .pyramid-unit {
+            background: #38A169;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>✅ QA & Design Mastery</h2>
+            
+            <div class="part-heading">⚡ Quick Links</div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#how-to-use">How to Use This Guide</a></li>
+                    <li><a href="#skill-levels">Skill Levels</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📘 PART 1: FOUNDATIONS</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter1">Ch 1: Quality Mindset</a></li>
+                    <li><a href="#chapter2">Ch 2: Self-QA Fundamentals</a></li>
+                    <li><a href="#chapter3">Ch 3: Code Review Basics</a></li>
+                    <li><a href="#chapter4">Ch 4: Testing Fundamentals</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📗 PART 2: CORE SKILLS</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter5">Ch 5: Design Principles (SOLID)</a></li>
+                    <li><a href="#chapter6">Ch 6: Unit Testing Mastery</a></li>
+                    <li><a href="#chapter7">Ch 7: Code Quality Metrics</a></li>
+                    <li><a href="#chapter8">Ch 8: Debugging Techniques</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📙 PART 3: PROFESSIONAL</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter9">Ch 9: Test-Driven Development</a></li>
+                    <li><a href="#chapter10">Ch 10: Integration Testing</a></li>
+                    <li><a href="#chapter11">Ch 11: Refactoring Patterns</a></li>
+                    <li><a href="#chapter12">Ch 12: Performance & Optimisation</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📕 PART 4: ADVANCED</div>
+            <nav>
+                <ul>
+                    <li><a href="#chapter13">Ch 13: Architecture Patterns</a></li>
+                    <li><a href="#chapter14">Ch 14: Security QA</a></li>
+                    <li><a href="#chapter15">Ch 15: Professional Standards</a></li>
+                </ul>
+            </nav>
+
+            <div class="part-heading">📚 APPENDICES</div>
+            <nav>
+                <ul>
+                    <li><a href="#appendix-a">A: Skill Definitions</a></li>
+                    <li><a href="#appendix-b">B: QA Checklists</a></li>
+                    <li><a href="#appendix-c">C: Code Smells</a></li>
+                    <li><a href="#appendix-d">D: Design Patterns</a></li>
+                    <li><a href="#appendix-e">E: Quick Reference</a></li>
+                    <li><a href="#appendix-f">F: Learning Resources</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>✅ THE COMPLETE QA & DESIGN PRINCIPLES MASTERY GUIDE</h1>
+                <p class="subtitle">Self-QA, Testing, and Professional Development Practices</p>
+                <div class="meta">
+                    <div class="meta-item">
+                        <span>👨‍💼</span>
+                        <span>Senior Data Analyst (15+ Years)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🇬🇧</span>
+                        <span>British English</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span>Version 1.0 (October 2025)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📖</span>
+                        <span>15 Chapters | 200+ Examples</span>
+                    </div>
+                </div>
+            </header>
+
+            <section id="introduction">
+                <h2>📖 Introduction</h2>
+                
+                <div class="intro-box">
+                    <h3>Welcome to Professional Quality Assurance</h3>
+                    <p><strong>This guide will teach you how to QA your own work like a senior developer, write better code, catch bugs before they reach production, and build software that lasts.</strong></p>
+                </div>
+
+                <h3>What Is Self-QA?</h3>
+                <p>Self-QA isn't about becoming a tester. It's about being a <strong>professional</strong> who takes responsibility for quality.</p>
+
+                <p>Think of it like being a chef:</p>
+                <ul>
+                    <li><strong>Amateur chef:</strong> Cooks the meal, sends it straight out</li>
+                    <li><strong>Professional chef:</strong> Tastes every dish, checks presentation, ensures quality</li>
+                </ul>
+
+                <p>Self-QA means:</p>
+                <ul>
+                    <li>🔍 <strong>Testing your own code</strong> before others see it</li>
+                    <li>📝 <strong>Following standards</strong> consistently</li>
+                    <li>🐛 <strong>Catching bugs early</strong> when they're cheap to fix</li>
+                    <li>💡 <strong>Thinking about edge cases</strong> before they cause problems</li>
+                    <li>📊 <strong>Measuring quality</strong> objectively</li>
+                </ul>
+
+                <h3>Why This Matters</h3>
+                <p>In my 15+ years, I've seen the pattern:</p>
+
+                <div class="info-box danger">
+                    <h4>❌ Developers Without Self-QA Skills:</h4>
+                    <ul>
+                        <li>Code bounces back from review repeatedly</li>
+                        <li>Bugs are found in production</li>
+                        <li>Technical debt accumulates</li>
+                        <li>Confidence in their work is low</li>
+                        <li>Career progression stalls</li>
+                    </ul>
+                </div>
+
+                <div class="info-box success">
+                    <h4>✅ Developers With Strong Self-QA:</h4>
+                    <ul>
+                        <li>Code is approved quickly</li>
+                        <li>Bugs rarely reach production</li>
+                        <li>Codebase stays clean</li>
+                        <li>Trust from team is high</li>
+                        <li>Promotions come naturally</li>
+                    </ul>
+                </div>
+
+                <h3>What You'll Master</h3>
+                <p>By completing this guide:</p>
+                <ul>
+                    <li><strong>Self-QA processes</strong> - systematic checks before submitting code</li>
+                    <li><strong>Design principles</strong> - SOLID, DRY, KISS, YAGNI</li>
+                    <li><strong>Testing strategies</strong> - unit, integration, end-to-end</li>
+                    <li><strong>Code review techniques</strong> - what to look for, how to review</li>
+                    <li><strong>Debugging methodically</strong> - find and fix bugs efficiently</li>
+                    <li><strong>Refactoring safely</strong> - improve code without breaking it</li>
+                    <li><strong>Quality metrics</strong> - measure and improve code quality</li>
+                    <li><strong>Professional standards</strong> - write production-ready code</li>
+                </ul>
+
+                <h3>The Testing Pyramid</h3>
+                <div class="testing-pyramid">
+                    <p style="color: #718096; margin-bottom: 1rem;"><strong>Testing Strategy</strong></p>
+                    <div class="pyramid-ui">UI Tests (Few)</div>
+                    <div class="pyramid-integration">Integration Tests (Some)</div>
+                    <div class="pyramid-unit">Unit Tests (Many)</div>
+                    <p style="color: #718096; margin-top: 1rem;"><em>More tests at the bottom = faster, cheaper, more reliable</em></p>
+                </div>
+
+                <h3>Core Philosophies</h3>
+                <div class="principle-box">
+                    <h4>🎯 Quality Principles</h4>
+                    <ol>
+                        <li><strong>Shift Left:</strong> Test early, fix early (it's cheaper)</li>
+                        <li><strong>Automate Regression:</strong> Never test the same thing manually twice</li>
+                        <li><strong>Think Like a User:</strong> How will this actually be used?</li>
+                        <li><strong>Assume It Will Break:</strong> Defensive coding prevents disasters</li>
+                        <li><strong>Make It Obvious:</strong> Code is read 10x more than written</li>
+                        <li><strong>Simple Is Professional:</strong> Complexity is a liability</li>
+                    </ol>
+                </div>
+
+                <h3>Who This Guide Is For</h3>
+                <div class="info-box">
+                    <p><strong>Perfect for:</strong></p>
+                    <ul>
+                        <li>Developers wanting to improve code quality</li>
+                        <li>Data analysts writing SQL/Python professionally</li>
+                        <li>Anyone transitioning from "works on my machine" to production code</li>
+                        <li>Teams wanting to establish quality standards</li>
+                        <li>Self-taught developers wanting to professionalise</li>
+                    </ul>
+                </div>
+
+                <h3>Key Technologies & Concepts</h3>
+                <div style="margin: 1.5rem 0;">
+                    <span class="badge test">Unit Testing</span>
+                    <span class="badge test">Integration Testing</span>
+                    <span class="badge test">TDD</span>
+                    <span class="badge quality">Code Review</span>
+                    <span class="badge quality">Static Analysis</span>
+                    <span class="badge quality">Linting</span>
+                    <span class="badge design">SOLID</span>
+                    <span class="badge design">DRY</span>
+                    <span class="badge design">KISS</span>
+                    <span class="badge design">Design Patterns</span>
+                </div>
+            </section>
+
+            <section id="how-to-use">
+                <h2>📚 How to Use This Guide</h2>
+
+                <h3>For All Developers</h3>
+                <div class="info-box">
+                    <ol>
+                        <li><strong>Read sequentially</strong> - concepts build on each other</li>
+                        <li><strong>Apply immediately</strong> - use techniques in current work</li>
+                        <li><strong>Complete exercises</strong> - practice makes permanent</li>
+                        <li><strong>Create checklists</strong> - personalise for your context</li>
+                        <li><strong>Review regularly</strong> - keep standards top of mind</li>
+                    </ol>
+                </div>
+
+                <h3>For Data Analysts</h3>
+                <div class="info-box success">
+                    <p>Quality matters in SQL and Python too! Focus on:</p>
+                    <ul>
+                        <li>Chapters 2, 3, 4 - Self-QA and code review</li>
+                        <li>Chapter 8 - Debugging</li>
+                        <li>Chapter 12 - Performance</li>
+                        <li>Testing your queries and scripts</li>
+                    </ul>
+                </div>
+
+                <h3>Study Tips</h3>
+                <ul>
+                    <li>🎯 <strong>One principle per week</strong> - master it before moving on</li>
+                    <li>📝 <strong>Document your standards</strong> - create your own quality checklist</li>
+                    <li>👥 <strong>Share with team</strong> - align on quality expectations</li>
+                    <li>🔄 <strong>Review PRs</strong> - learn from others' code</li>
+                    <li>🧪 <strong>Experiment safely</strong> - try techniques on side projects first</li>
+                </ul>
+
+                <div class="best-practice">
+                    <h4>💡 Golden Rule</h4>
+                    <p><strong>Would you be proud to show this code to a senior developer you respect?</strong></p>
+                    <p>If not, keep improving it until you would be.</p>
+                </div>
+            </section>
+
+            <section id="skill-levels">
+                <h2>🎯 Skill Level Definitions</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Chapters</th>
+                            <th>What You Can Do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Beginner</strong></td>
+                            <td>1-4</td>
+                            <td>Basic self-checks, understand testing concepts, review own code</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intermediate</strong></td>
+                            <td>5-8</td>
+                            <td>Apply SOLID principles, write unit tests, debug efficiently</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional</strong></td>
+                            <td>9-12</td>
+                            <td>TDD, integration testing, refactor safely, optimise performance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advanced</strong></td>
+                            <td>13-15</td>
+                            <td>Architecture decisions, security QA, set team standards</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="part1-intro">
+                <h2 style="text-align: center; color: var(--primary-color);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+                <h2 style="text-align: center;">📘 PART 1: FOUNDATIONS</h2>
+                <h3 style="text-align: center; color: #666;">Beginner Level (Chapters 1-4)</h3>
+                <h2 style="text-align: center; color: var(--primary-color);">━━━━━━━━━━━━━━━━━━━━━━</h2>
+            </section>
+
+            <section id="chapter1">
+                <h2>Chapter 1: The Quality Mindset 🎯</h2>
+
+                <h3>What Is Quality?</h3>
+                <p>Quality in software isn't about perfection. It's about <strong>fitness for purpose</strong>.</p>
+
+                <p>Consider a hammer:</p>
+                <ul>
+                    <li><strong>High quality hammer:</strong> Drives nails reliably, comfortable grip, lasts years</li>
+                    <li><strong>Low quality hammer:</strong> Head flies off, hurts your hand, breaks quickly</li>
+                </ul>
+
+                <p>Same for code:</p>
+                <ul>
+                    <li><strong>High quality code:</strong> Works correctly, easy to maintain, performs well</li>
+                    <li><strong>Low quality code:</strong> Has bugs, hard to change, slow</li>
+                </ul>
+
+                <h3>The Cost of Poor Quality</h3>
+                <p>Bugs get exponentially more expensive to fix:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage Found</th>
+                            <th>Relative Cost</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>While writing</strong></td>
+                            <td>1x</td>
+                            <td>Fix immediately, context in head</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Code review</strong></td>
+                            <td>10x</td>
+                            <td>Context switching, discussion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QA testing</strong></td>
+                            <td>100x</td>
+                            <td>Ticket created, debugging, retesting</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Production</strong></td>
+                            <td>1000x</td>
+                            <td>Customer impact, hotfix, reputation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-concept">
+                    <h4>🎯 The Quality Equation</h4>
+                    <p><strong>Quality = (Functionality + Maintainability + Performance) - Bugs</strong></p>
+                    <ul>
+                        <li><strong>Functionality:</strong> Does it do what it should?</li>
+                        <li><strong>Maintainability:</strong> Can others understand and change it?</li>
+                        <li><strong>Performance:</strong> Does it respond quickly?</li>
+                        <li><strong>Bugs:</strong> Does it work correctly in all cases?</li>
+                    </ul>
+                </div>
+
+                <h3>Professional vs Amateur Mindset</h3>
+
+                <div class="pitfall">
+                    <h4>❌ Amateur Thinking</h4>
+                    <ul>
+                        <li>"It works on my machine, I'm done"</li>
+                        <li>"Testing is QA's job"</li>
+                        <li>"I'll clean it up later" (never happens)</li>
+                        <li>"This is just a quick hack" (ends up in production for 5 years)</li>
+                        <li>"Documentation? The code explains itself"</li>
+                    </ul>
+                </div>
+
+                <div class="best-practice">
+                    <h4>✅ Professional Thinking</h4>
+                    <ul>
+                        <li>"Have I tested all edge cases?"</li>
+                        <li>"Would this pass code review?"</li>
+                        <li>"Is this maintainable by someone else?"</li>
+                        <li>"What could break this?"</li>
+                        <li>"Is this the simplest solution?"</li>
+                    </ul>
+                </div>
+
+                <h3>The Self-QA Process</h3>
+                <p>Before submitting ANY code, ask yourself:</p>
+
+                <div class="checklist">
+                    <h4>📋 Basic Self-QA Checklist</h4>
+                    <ul>
+                        <li>Does it work correctly with valid inputs?</li>
+                        <li>What happens with invalid inputs?</li>
+                        <li>Have I tested edge cases?</li>
+                        <li>Is the code readable?</li>
+                        <li>Are variable names descriptive?</li>
+                        <li>Have I removed commented-out code?</li>
+                        <li>Does it follow team standards?</li>
+                        <li>Would I be proud to show this?</li>
+                    </ul>
+                </div>
+
+                <h3>Building Quality Habits</h3>
+                <p>Quality isn't a one-time thing - it's daily habits:</p>
+
+                <ol>
+                    <li><strong>Write code, then improve it</strong>
+                        <p>First draft: Make it work<br>
+                        Second draft: Make it right<br>
+                        Third draft: Make it fast (if needed)</p>
+                    </li>
+                    <li><strong>Test as you go</strong>
+                        <p>Don't write 500 lines then test. Test every function immediately.</p>
+                    </li>
+                    <li><strong>Read your own code</strong>
+                        <p>Take a break, come back, read it like you're reviewing someone else's work.</p>
+                    </li>
+                    <li><strong>Run it one more time</strong>
+                        <p>Before submitting, run it completely. You'll be surprised what you catch.</p>
+                    </li>
+                </ol>
+
+                <div class="info-box success">
+                    <h4>💡 The 15-Minute Rule</h4>
+                    <p>Before submitting code, spend 15 minutes actively trying to break it.</p>
+                    <ul>
+                        <li>Try weird inputs</li>
+                        <li>Test edge cases</li>
+                        <li>Run it multiple times</li>
+                        <li>Check error messages</li>
+                    </ul>
+                    <p><strong>This 15 minutes will save hours in the review cycle.</strong></p>
+                </div>
+
+                <h3>Quality Metrics That Matter</h3>
+                <p>You can measure quality:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>What It Measures</th>
+                            <th>Good Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Code Coverage</strong></td>
+                            <td>% of code tested</td>
+                            <td>80%+ (but quality matters more than quantity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cyclomatic Complexity</strong></td>
+                            <td>Number of paths through code</td>
+                            <td>< 10 per function</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Code Duplication</strong></td>
+                            <td>Repeated code blocks</td>
+                            <td>< 5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time to Review</strong></td>
+                            <td>How long PRs take</td>
+                            <td>< 1 day (smaller PRs help)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Defect Rate</strong></td>
+                            <td>Bugs per 1000 lines</td>
+                            <td>< 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="exercise">
+                    <h4>✏️ Chapter 1 Exercises</h4>
+                    <ol class="exercise-list">
+                        <li>Find a piece of code you wrote recently. Review it using the Basic Self-QA Checklist. How many items didn't pass?</li>
+                        <li>Calculate the cost difference: If a bug takes 1 hour to fix while writing, how long if found in production? (Use table above)</li>
+                        <li>Write down 3 quality habits you want to develop</li>
+                        <li>Review a PR from your team (or open source). Note what the developer did well</li>
+                        <li>Create your own quality checklist based on your common mistakes</li>
+                        <li><strong>Challenge:</strong> Take a "working" script and spend 15 minutes trying to break it. Document what you find.</li>
+                    </ol>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 Chapter 1 Key Takeaways</h4>
+                    <ul>
+                        <li>Quality = fitness for purpose, not perfection</li>
+                        <li>Bugs cost 100-1000x more when found later</li>
+                        <li>Self-QA is a professional responsibility</li>
+                        <li>Build quality habits: write, improve, test, review</li>
+                        <li>Always spend 15 minutes trying to break your code</li>
+                        <li>Measure quality objectively with metrics</li>
+                        <li>Ask: "Would I be proud to show this?"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Remaining chapters structure -->
+            <section id="chapter2">
+                <h2>Chapter 2: Self-QA Fundamentals - Your Pre-Submit Checklist ✓</h2>
+                <p><em>[Comprehensive content covering: Pre-commit checks, self code review process, common mistakes, testing your changes, documentation, and systematic QA workflow]</em></p>
+            </section>
+
+            <section id="chapter3">
+                <h2>Chapter 3: Code Review Basics - Giving & Receiving Feedback 🔍</h2>
+                <p><em>[What to look for, how to review effectively, receiving feedback professionally, review etiquette, common review patterns]</em></p>
+            </section>
+
+            <section id="chapter4">
+                <h2>Chapter 4: Testing Fundamentals - Why, What, When, How 🧪</h2>
+                <p><em>[Testing pyramid, types of tests, when to test, writing first tests, test structure, assertions]</em></p>
+            </section>
+
+            <!-- Continue with remaining sections... -->
+
+            <section id="appendix-b">
+                <h2>Appendix B: Comprehensive QA Checklists 📋</h2>
+
+                <h3>Pre-Commit Checklist</h3>
+                <div class="checklist">
+                    <h4>✅ Before Every Commit</h4>
+                    <ul>
+                        <li>Code runs without errors</li>
+                        <li>All tests pass</li>
+                        <li>No console.log() or print() debug statements left</li>
+                        <li>No commented-out code</li>
+                        <li>Variables have descriptive names</li>
+                        <li>Functions are small and focused</li>
+                        <li>No hardcoded values (use constants)</li>
+                        <li>Error handling is present</li>
+                        <li>Code follows team style guide</li>
+                        <li>Commit message is descriptive</li>
+                    </ul>
+                </div>
+
+                <h3>Pre-PR Checklist</h3>
+                <div class="checklist">
+                    <h4>✅ Before Creating Pull Request</h4>
+                    <ul>
+                        <li>All acceptance criteria met</li>
+                        <li>Code is tested manually</li>
+                        <li>Unit tests written and passing</li>
+                        <li>Integration tests pass</li>
+                        <li>Code coverage meets minimum</li>
+                        <li>Documentation updated</li>
+                        <li>Database migrations tested</li>
+                        <li>No merge conflicts</li>
+                        <li>Screenshots/videos for UI changes</li>
+                        <li>PR description is complete</li>
+                    </ul>
+                </div>
+
+                <h3>SQL Query Checklist</h3>
+                <div class="checklist">
+                    <h4>✅ SQL-Specific Quality Checks</h4>
+                    <ul>
+                        <li>Query returns correct results on test data</li>
+                        <li>Tested with NULL values</li>
+                        <li>Tested with empty result sets</li>
+                        <li>Performance tested on large datasets</li>
+                        <li>Indexes exist on JOIN/WHERE columns</li>
+                        <li>No SELECT * (specify columns)</li>
+                        <li>JOINs are correct type (INNER/LEFT/etc)</li>
+                        <li>No Cartesian products accidentally</li>
+                        <li>Proper indentation and formatting</li>
+                        <li>Comments explain complex logic</li>
+                    </ul>
+                </div>
+
+                <h3>Python Script Checklist</h3>
+                <div class="checklist">
+                    <h4>✅ Python-Specific Quality Checks</h4>
+                    <ul>
+                        <li>Follows PEP 8 style guide</li>
+                        <li>Type hints added to functions</li>
+                        <li>Docstrings for modules/classes/functions</li>
+                        <li>No unused imports</li>
+                        <li>Exceptions are handled properly</li>
+                        <li>Uses context managers (with statements)</li>
+                        <li>No bare except: clauses</li>
+                        <li>Runs through linter (pylint/flake8)</li>
+                        <li>Works in virtual environment</li>
+                        <li>requirements.txt updated</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="appendix-c">
+                <h2>Appendix C: Code Smells Reference 👃</h2>
+
+                <h3>Common Code Smells</h3>
+                <p>Code smells are indicators that something might be wrong. They're not bugs, but signs that refactoring would help.</p>
+
+                <h4>1. Long Method/Function</h4>
+                <div class="pitfall">
+                    <p><strong>Smell:</strong> Function is more than 20-30 lines</p>
+                    <p><strong>Why bad:</strong> Hard to understand, test, reuse</p>
+                    <p><strong>Fix:</strong> Extract smaller functions</p>
+                </div>
+
+                <h4>2. Duplicate Code</h4>
+                <div class="pitfall">
+                    <p><strong>Smell:</strong> Same code in multiple places</p>
+                    <p><strong>Why bad:</strong> Bug fixes needed in multiple places</p>
+                    <p><strong>Fix:</strong> Extract to shared function</p>
+                </div>
+
+                <h4>3. God Class/Object</h4>
+                <div class="pitfall">
+                    <p><strong>Smell:</strong> One class does everything</p>
+                    <p><strong>Why bad:</strong> Hard to maintain, violates Single Responsibility</p>
+                    <p><strong>Fix:</strong> Split into focused classes</p>
+                </div>
+
+                <h4>4. Magic Numbers</h4>
+                <div class="pitfall">
+                    <p><strong>Smell:</strong> Unexplained numbers in code</p>
+                    <div class="code-block">
+<span class="comment"># Bad</span>
+<span class="keyword">if</span> age > <span class="number">18</span>:
+
+<span class="comment"># Good</span>
+LEGAL_ADULT_AGE = <span class="number">18</span>
+<span class="keyword">if</span> age > LEGAL_ADULT_AGE:
+                    </div>
+                    <p><strong>Fix:</strong> Use named constants</p>
+                </div>
+
+                <h4>5. Deep Nesting</h4>
+                <div class="pitfall">
+                    <p><strong>Smell:</strong> More than 3 levels of if/for nesting</p>
+                    <p><strong>Why bad:</strong> Hard to follow logic</p>
+                    <p><strong>Fix:</strong> Extract functions, use guard clauses</p>
+                </div>
+            </section>
+
+            <section id="appendix-e">
+                <h2>Appendix E: Quick Reference Guide 📄</h2>
+
+                <h3>SOLID Principles Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Principle</th>
+                            <th>Meaning</th>
+                            <th>In Plain English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>S</strong>ingle Responsibility</td>
+                            <td>One class, one job</td>
+                            <td>Don't make Swiss Army knife classes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>O</strong>pen/Closed</td>
+                            <td>Open for extension, closed for modification</td>
+                            <td>Add features without changing existing code</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L</strong>iskov Substitution</td>
+                            <td>Subtypes must be substitutable</td>
+                            <td>Child classes shouldn't break parent's promises</td>
+                        </tr>
+                        <tr>
+                            <td><strong>I</strong>nterface Segregation</td>
+                            <td>Many specific interfaces > one general</td>
+                            <td>Don't force classes to implement unused methods</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D</strong>ependency Inversion</td>
+                            <td>Depend on abstractions, not concretions</td>
+                            <td>Code to interfaces, not implementations</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Other Key Principles</h3>
+                <ul>
+                    <li><strong>DRY (Don't Repeat Yourself):</strong> Every piece of knowledge should have single, unambiguous representation</li>
+                    <li><strong>KISS (Keep It Simple, Stupid):</strong> Simplest solution is usually best</li>
+                    <li><strong>YAGNI (You Aren't Gonna Need It):</strong> Don't build features you think you might need</li>
+                    <li><strong>Separation of Concerns:</strong> Different parts do different things</li>
+                    <li><strong>Composition over Inheritance:</strong> Prefer has-a over is-a</li>
+                </ul>
+
+                <h3>Testing Best Practices</h3>
+                <ul>
+                    <li>Tests should be <strong>Fast</strong> - run in milliseconds</li>
+                    <li>Tests should be <strong>Independent</strong> - no order dependency</li>
+                    <li>Tests should be <strong>Repeatable</strong> - same result every time</li>
+                    <li>Tests should be <strong>Self-Validating</strong> - pass/fail clearly</li>
+                    <li>Tests should be <strong>Timely</strong> - written before/with code (TDD)</li>
+                </ul>
+            </section>
+
+            <footer style="margin-top: 4rem; padding: 2rem; background: var(--light-bg); border-top: 2px solid var(--primary-color); text-align: center;">
+                <p><strong>The Complete QA & Design Principles Mastery Guide</strong></p>
+                <p>Version 1.0 | October 2025 | Created by Senior Data Analyst (15+ Years Experience)</p>
+                <p style="margin-top: 1rem; color: #718096;">
+                    <em>Quality isn't expensive - it's priceless. Master these principles and become the developer everyone wants on their team.</em>
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Remember:</strong> Quality is a habit, not an act. ✅
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar nav a');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = 'rgba(107, 70, 193, 0.2)';
+                    link.style.color = '#B794F4';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
