@@ -20,9 +20,11 @@ jobs:
           args: >-
             --verbose
             --no-progress
+            --max-retries 3
+            --retry-wait-time 2
             --accept 200,204,301,302
-            --exclude-mail
             --exclude "tel:"
             --exclude "^#"
+            --exclude "https://(www\\.)?linkedin\\.com/.*"
             "**/*.html"
             "**/*.md"
