@@ -19,8 +19,11 @@
     <meta property="og:image" content="https://alanfullagar.github.io/portfolio-preview.png">
     <meta property="og:url" content="https://alanfullagar.github.io">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Alan Fullagar | BI Developer & Data Analyst">
+    <meta name="twitter:description" content="Building end-to-end BI solutions with Power BI, Python & T-SQL.">
+    <meta name="twitter:image" content="https://alanfullagar.github.io/portfolio-preview.png">
+    <link rel="canonical" href="https://alanfullagar.github.io/">
 
-    
     <style>
         :root {
             /* Enhanced Data-Viz Inspired Colour Palette */
@@ -508,7 +511,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .portfolio-item:hover {
@@ -834,7 +836,7 @@
             <p>📧 <a href="mailto:alan.fullagar@icloud.com">alan.fullagar@icloud.com</a></p>
             <p>📱 <a href="tel:07450556836">07450 556836</a></p>
             <p>📍 Derby, Derbyshire, UK</p>
-            <p>🔗 <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank">LinkedIn Profile</a></p>
+            <p>🔗 <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
         </div>
 
         <nav>
@@ -870,7 +872,7 @@
 
                     <div class="highlight-box">
                         <h3>🎯 Current Focus</h3>
-                        <p>Advancing capabilities in <strong>dimensional modelling</strong>, <strong>SSRS</strong>, and <strong>data warehousing concepts</strong> as I transition into BI Intelligence and Junior Data Engineer roles. Actively pursuing <strong>Microsoft Power BI (PL-300)</strong> and <strong>Data Analyst Associate (DA-100)</strong> certifications to validate technical expertise and strengthen enterprise BI capabilities.</p>
+                        <p>Advancing capabilities in <strong>dimensional modelling</strong>, <strong>SSRS</strong>, and <strong>data warehousing concepts</strong> as I transition into BI Intelligence and Junior Data Engineer roles. Actively pursuing <strong>Microsoft Power BI Data Analyst Associate (PL-300)</strong> certification to validate technical expertise and strengthen enterprise BI capabilities.</p>
                     </div>
                 </div>
 
@@ -1179,7 +1181,7 @@
                     <div class="portfolio-image">
                         <div class="portfolio-badge">Power BI</div>
                         <!-- PLACEHOLDER: Replace with actual dashboard screenshot -->
-                        <span>[Executive KPI Dashboard Screenshot]</span>
+                        <span>Dashboard snapshot coming soon (client-safe redaction in progress).</span>
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Executive KPI Dashboard</h3>
@@ -1199,7 +1201,7 @@
                     <div class="portfolio-image">
                         <div class="portfolio-badge">Python</div>
                         <!-- PLACEHOLDER: Replace with actual tool screenshot -->
-                        <span>[Python Automation Tool Screenshot]</span>
+                        <span>Automation tool snapshot coming soon (confidential details removed).</span>
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Automated File Monitoring System</h3>
@@ -1219,7 +1221,7 @@
                     <div class="portfolio-image">
                         <div class="portfolio-badge">API Integration</div>
                         <!-- PLACEHOLDER: Replace with architecture diagram -->
-                        <span>[ETL Pipeline Architecture Diagram]</span>
+                        <span>ETL architecture diagram coming soon.</span>
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">API Data Pipeline</h3>
@@ -1335,7 +1337,7 @@
 
                 <div class="contact-card">
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank">Connect with me</a>
+                    <a href="https://www.linkedin.com/in/alanfullagar19800509" target="_blank" rel="noopener noreferrer">Connect with me</a>
                 </div>
 
                 <div class="contact-card">
@@ -1442,15 +1444,6 @@
 
         document.querySelectorAll('.stat-box').forEach(box => {
             statsObserver.observe(box);
-        });
-
-        // Add hover effect to portfolio items
-        document.querySelectorAll('.portfolio-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Optional: Add click handler for portfolio items
-                // Could open modal or navigate to detailed project page
-                console.log('Portfolio item clicked:', this.querySelector('.portfolio-title').textContent);
-            });
         });
 
         // Initialize active state on page load
