@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">API ETL Architecture</title>
+  <desc id="desc">Layered ETL architecture diagram from source APIs to Power BI reporting.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="644" rx="18" fill="#0b1220" stroke="#334155"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#e2e8f0">
+    <text x="56" y="78" font-size="30" font-weight="700">API Data Pipeline Architecture</text>
+    <text x="56" y="108" font-size="18" fill="#94a3b8">Automated ingestion, staging, transform, and BI delivery</text>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="70" y="160" width="220" height="110" rx="12" fill="#1e3a8a"/>
+    <text x="96" y="208" font-size="20" fill="#dbeafe" font-weight="700">External APIs</text>
+    <text x="96" y="236" font-size="15" fill="#bfdbfe">REST, JSON, Webhooks</text>
+
+    <rect x="340" y="160" width="220" height="110" rx="12" fill="#0f766e"/>
+    <text x="364" y="208" font-size="20" fill="#ccfbf1" font-weight="700">Ingestion Layer</text>
+    <text x="364" y="236" font-size="15" fill="#99f6e4">Python schedulers</text>
+
+    <rect x="610" y="160" width="220" height="110" rx="12" fill="#7c2d12"/>
+    <text x="646" y="208" font-size="20" fill="#ffedd5" font-weight="700">Staging SQL</text>
+    <text x="646" y="236" font-size="15" fill="#fed7aa">Raw load + checks</text>
+
+    <rect x="880" y="160" width="220" height="110" rx="12" fill="#166534"/>
+    <text x="902" y="208" font-size="20" fill="#dcfce7" font-weight="700">Semantic Model</text>
+    <text x="902" y="236" font-size="15" fill="#bbf7d0">DAX + dimensions</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <line x1="290" y1="215" x2="340" y2="215"/>
+    <line x1="560" y1="215" x2="610" y2="215"/>
+    <line x1="830" y1="215" x2="880" y2="215"/>
+  </g>
+
+  <g>
+    <rect x="70" y="330" width="1030" height="282" rx="14" fill="#0f172a" stroke="#334155"/>
+    <g font-family="Segoe UI, Arial, sans-serif">
+      <text x="100" y="370" font-size="24" fill="#f8fafc" font-weight="600">Controls, Observability, and Delivery</text>
+
+      <rect x="100" y="396" width="300" height="180" rx="10" fill="#111827" stroke="#1f2937"/>
+      <text x="122" y="432" font-size="19" fill="#93c5fd" font-weight="700">Validation Rules</text>
+      <text x="122" y="462" font-size="15" fill="#cbd5e1">Schema checks</text>
+      <text x="122" y="488" font-size="15" fill="#cbd5e1">Null and duplicate detection</text>
+      <text x="122" y="514" font-size="15" fill="#cbd5e1">Business threshold checks</text>
+
+      <rect x="434" y="396" width="300" height="180" rx="10" fill="#111827" stroke="#1f2937"/>
+      <text x="456" y="432" font-size="19" fill="#86efac" font-weight="700">Monitoring and Logs</text>
+      <text x="456" y="462" font-size="15" fill="#cbd5e1">Job runtime tracking</text>
+      <text x="456" y="488" font-size="15" fill="#cbd5e1">Failure retries and alerts</text>
+      <text x="456" y="514" font-size="15" fill="#cbd5e1">Daily pipeline summaries</text>
+
+      <rect x="768" y="396" width="300" height="180" rx="10" fill="#111827" stroke="#1f2937"/>
+      <text x="790" y="432" font-size="19" fill="#fcd34d" font-weight="700">Power BI Delivery</text>
+      <text x="790" y="462" font-size="15" fill="#cbd5e1">Scheduled dataset refresh</text>
+      <text x="790" y="488" font-size="15" fill="#cbd5e1">RLS-enabled dashboards</text>
+      <text x="790" y="514" font-size="15" fill="#cbd5e1">Executive KPI reporting</text>
+    </g>
+  </g>
+</svg>

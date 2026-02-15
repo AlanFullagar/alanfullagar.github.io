@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Automated File Monitoring Tool</title>
+  <desc id="desc">Application style visual with queue states and alerts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1324" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="652" rx="20" fill="#0f172a" stroke="#334155"/>
+
+  <rect x="56" y="56" width="1088" height="68" rx="12" fill="#111827" stroke="#1f2937"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#e5e7eb">
+    <text x="84" y="99" font-size="28" font-weight="700">Automated File Monitoring System</text>
+    <text x="746" y="98" font-size="17" fill="#93c5fd">Last scan: 08:42</text>
+    <text x="906" y="98" font-size="17" fill="#86efac">Status: Healthy</text>
+  </g>
+
+  <rect x="56" y="148" width="526" height="492" rx="14" fill="#111827" stroke="#1f2937"/>
+  <rect x="600" y="148" width="544" height="492" rx="14" fill="#111827" stroke="#1f2937"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="84" y="188" font-size="22" fill="#f8fafc" font-weight="600">File Queue</text>
+    <text x="628" y="188" font-size="22" fill="#f8fafc" font-weight="600">Alerts and Actions</text>
+  </g>
+
+  <g>
+    <rect x="84" y="212" width="470" height="72" rx="10" fill="#0b1220" stroke="#1e3a8a"/>
+    <rect x="84" y="300" width="470" height="72" rx="10" fill="#0b1220" stroke="#0f766e"/>
+    <rect x="84" y="388" width="470" height="72" rx="10" fill="#0b1220" stroke="#9a3412"/>
+    <rect x="84" y="476" width="470" height="72" rx="10" fill="#0b1220" stroke="#166534"/>
+    <g font-family="Consolas, monospace" font-size="16" fill="#cbd5e1">
+      <text x="104" y="255">client_a_weekly.csv          Processed</text>
+      <text x="104" y="343">client_b_referrals.csv       Ingested</text>
+      <text x="104" y="431">client_c_overdue.csv         Warning</text>
+      <text x="104" y="519">client_d_payments.csv        Completed</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="628" y="212" width="488" height="130" rx="10" fill="#0b1220" stroke="#7c2d12"/>
+    <rect x="628" y="360" width="488" height="130" rx="10" fill="#0b1220" stroke="#065f46"/>
+    <rect x="628" y="508" width="488" height="104" rx="10" fill="#0b1220" stroke="#1d4ed8"/>
+    <g font-family="Segoe UI, Arial, sans-serif">
+      <text x="654" y="252" font-size="18" fill="#fdba74" font-weight="700">Overdue Threshold Reached</text>
+      <text x="654" y="282" font-size="15" fill="#fed7aa">5 files exceeded SLA window. Email notifications queued.</text>
+      <text x="654" y="400" font-size="18" fill="#86efac" font-weight="700">Auto-Reconciliation Complete</text>
+      <text x="654" y="430" font-size="15" fill="#bbf7d0">31 records validated and loaded to SQL staging.</text>
+      <text x="654" y="548" font-size="18" fill="#93c5fd" font-weight="700">Next job in 00:13:27</text>
+      <text x="654" y="578" font-size="15" fill="#bfdbfe">Scheduler and outbound mail service active.</text>
+    </g>
+  </g>
+</svg>
