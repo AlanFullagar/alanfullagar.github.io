@@ -1,0 +1,15 @@
+# Ignore all CV files in root directory
+*.docx
+*.pdf
+
+# Keep Technical Analyst CV in assets/docs only
+!assets/docs/Alan_Fullagar_Technical_Analyst_CV.pdf
+
+# Python scripts
+*.py
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
